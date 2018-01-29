@@ -4,7 +4,7 @@
 
 #### Planning:
 
-[Waffle.io](https://waffle.io/RossTienken/paintAR)
+[Waffle.io](https://waffle.io/RossTienken/sprAy-R)
 
 [Database Schema](https://balsamiq.cloud/sxjyx/phz0c/rBBD3)
 
