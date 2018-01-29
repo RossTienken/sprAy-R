@@ -14,9 +14,13 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet weak var drawButton: UIButton!
+    @IBOutlet weak var refreshBtn: customButton!
     @IBOutlet weak var reticle: UILabel!
     
+    var showRefresh = false
     var currentColor = UIColor.white
+    var colorName = "white"
+    var canvasNode = SCNNode()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,13 +29,14 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.delegate = self
         
         // Show statistics such as fps and timing information
-        sceneView.showsStatistics = false
+        // sceneView.showsStatistics = true
         
         // Create a new scene
-//        let scene = SCNScene(named: "art.scnassets/ship.scn")!
+        let scene = SCNScene()
         
         // Set the scene to the view
-//        sceneView.scene = scene
+        sceneView.scene = scene
+        sceneView.scene.rootNode.addChildNode(canvasNode)
     }
     
     func renderer(_ renderer: SCNSceneRenderer, willRenderScene scene: SCNScene, atTime time: TimeInterval) {
@@ -51,14 +56,25 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 material.diffuse.contents = self.currentColor
                 sphere.materials = [material]
                 
+                if self.showRefresh == false {
+                    self.showButton()
+                }
                 
                 let sphereNode = SCNNode(geometry: sphere)
                 sphereNode.position = SCNVector3(x: cameraPosition.x, y: cameraPosition.y, z: cameraPosition.z)
                 
-                self.sceneView.scene.rootNode.addChildNode(sphereNode)
+                print(self.colorName)
+                self.canvasNode.addChildNode(sphereNode)
+                
             }
         }
     }
+    
+    func showButton() {
+        showRefresh = true
+        refreshBtn.isHidden = false
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -107,28 +123,41 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Reset tracking and/or remove existing anchors if consistent tracking is required
         
     }
-    
+
+    @IBAction func refreshSrc(_ sender: Any) {
+        self.canvasNode.enumerateChildNodes { (node, _) in
+            node.removeFromParentNode()
+        }
+        refreshBtn.isHidden = true
+        showRefresh = false
+    }
     @IBAction func blackBtn(_ sender: Any) {
+        colorName = "black"
         currentColor = UIColor.black
         reticle.textColor = UIColor.black
     }
     @IBAction func blueBtn(_ sender: Any) {
+        colorName = "blue"
         currentColor = UIColor.blue
         reticle.textColor = UIColor.blue
     }
     @IBAction func greenBtn(_ sender: Any) {
+        colorName = "green"
         currentColor = UIColor.green
         reticle.textColor = UIColor.green
     }
     @IBAction func orangeBtn(_ sender: Any) {
+        colorName = "orange"
         currentColor = UIColor.orange
         reticle.textColor = UIColor.orange
     }
     @IBAction func redBtn(_ sender: Any) {
+        colorName = "red"
         currentColor = UIColor.red
         reticle.textColor = UIColor.red
     }
     @IBAction func whiteBtn(_ sender: Any) {
+        colorName = "white"
         currentColor = UIColor.white
         reticle.textColor = UIColor.white
     }

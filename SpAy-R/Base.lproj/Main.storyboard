@@ -27,6 +27,19 @@
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1B8-5F-lNJ">
+                                <rect key="frame" x="152" y="510" width="70" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="canWhite"/>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eq9-cF-Zxq" customClass="customButton" customModule="SpAy_R" customModuleProvider="target">
+                                <rect key="frame" x="325" y="40" width="35" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="refresh"/>
+                                <connections>
+                                    <action selector="refreshSrc:" destination="BV1-FR-VrT" eventType="touchUpInside" id="nRE-AT-W3z"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MCz-2r-U57">
                                 <rect key="frame" x="16" y="597" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -92,39 +105,22 @@
                                     <action selector="whiteBtn:" destination="BV1-FR-VrT" eventType="touchUpInside" id="oK5-2m-C4b"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ife-YS-vMK" customClass="customBtn" customModule="SpAy_R" customModuleProvider="target">
-                                <rect key="frame" x="324" y="40" width="35" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="QEL-Qr-HQ4"/>
-                                    <constraint firstAttribute="width" constant="35" id="s1n-jg-r7j"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="X">
-                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1B8-5F-lNJ">
-                                <rect key="frame" x="152" y="510" width="70" height="70"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="canWhite"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="QjL-BN-83G" firstAttribute="top" secondItem="jkb-gi-giz" secondAttribute="top" id="6Sm-0w-WMT"/>
                             <constraint firstItem="Opy-Da-Fxi" firstAttribute="centerX" secondItem="jkb-gi-giz" secondAttribute="centerX" id="962-hc-7Q4"/>
-                            <constraint firstItem="QjL-BN-83G" firstAttribute="leading" secondItem="9de-7U-H5f" secondAttribute="leading" id="CWt-SC-7b7"/>
-                            <constraint firstItem="ife-YS-vMK" firstAttribute="top" secondItem="9de-7U-H5f" secondAttribute="top" constant="20" id="RZL-yJ-Rfg"/>
-                            <constraint firstItem="9de-7U-H5f" firstAttribute="trailing" secondItem="ife-YS-vMK" secondAttribute="trailing" constant="16" id="VnW-r5-fom"/>
-                            <constraint firstItem="QjL-BN-83G" firstAttribute="trailing" secondItem="9de-7U-H5f" secondAttribute="trailing" id="mne-b4-GTw"/>
-                            <constraint firstItem="QjL-BN-83G" firstAttribute="top" secondItem="jkb-gi-giz" secondAttribute="top" id="p60-L1-Svi"/>
+                            <constraint firstItem="QjL-BN-83G" firstAttribute="leading" secondItem="9de-7U-H5f" secondAttribute="leading" id="Eaf-Qp-jcb"/>
+                            <constraint firstItem="QjL-BN-83G" firstAttribute="trailing" secondItem="9de-7U-H5f" secondAttribute="trailing" id="hWA-zd-hhn"/>
                             <constraint firstItem="Opy-Da-Fxi" firstAttribute="centerY" secondItem="jkb-gi-giz" secondAttribute="centerY" id="sOC-al-TEc"/>
-                            <constraint firstItem="QjL-BN-83G" firstAttribute="bottom" secondItem="9de-7U-H5f" secondAttribute="bottom" id="vmv-jO-kSA"/>
+                            <constraint firstItem="QjL-BN-83G" firstAttribute="bottom" secondItem="9de-7U-H5f" secondAttribute="bottom" id="tGa-FV-9S3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9de-7U-H5f"/>
                     </view>
                     <connections>
                         <outlet property="drawButton" destination="1B8-5F-lNJ" id="3ae-SY-AV0"/>
-                        <outlet property="reticle" destination="Opy-Da-Fxi" id="hD8-fs-Gl0"/>
+                        <outlet property="refreshBtn" destination="eq9-cF-Zxq" id="CCf-rm-qmX"/>
+                        <outlet property="reticle" destination="Opy-Da-Fxi" id="pi9-7W-WQ0"/>
                         <outlet property="sceneView" destination="QjL-BN-83G" id="j8n-2m-C7M"/>
                     </connections>
                 </viewController>
@@ -140,5 +136,6 @@
         <image name="canOrange" width="300" height="299"/>
         <image name="canRed" width="300" height="299"/>
         <image name="canWhite" width="300" height="299"/>
+        <image name="refresh" width="400" height="400"/>
     </resources>
 </document>
