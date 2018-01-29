@@ -38,6 +38,17 @@
 * [Paint](https://balsamiq.cloud/sxjyx/pvyfo/rD5B6)
 
 
+###### Technologies
+1. Swift
+2. ARKit
+3. Python
+4. Flask
+5. MySQL
+6. sqlAlchemy
+7. ReplayKit
+8. Alamofire
+
+
 ###### Style Guide
 
 [Graffiti Font](https://fonts.google.com/specimen/Fruktur) or something similar for the home-screen logo
