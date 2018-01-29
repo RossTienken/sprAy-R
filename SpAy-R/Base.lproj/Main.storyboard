@@ -1,27 +1,144 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A278a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14087.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14075.4"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <viewController id="BV1-FR-VrT" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <arscnView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="BrB-h1-WRS">
+                <viewController id="BV1-FR-VrT" customClass="ViewController" customModule="SpAy_R" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jkb-gi-giz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    </arscnView>
+                        <subviews>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QjL-BN-83G">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </arscnView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="O" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Opy-Da-Fxi">
+                                <rect key="frame" x="180" y="321.5" width="15.5" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MCz-2r-U57">
+                                <rect key="frame" x="16" y="597" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="canBlack">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="blackBtn:" destination="BV1-FR-VrT" eventType="touchUpInside" id="rd4-Yo-OTY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ypn-cZ-MXw">
+                                <rect key="frame" x="74" y="597" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="canBlue">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="blackBtn:" destination="BV1-FR-VrT" eventType="touchUpInside" id="eD8-O3-oaY"/>
+                                    <action selector="blueBtn:" destination="BV1-FR-VrT" eventType="touchUpInside" id="QzQ-AN-QOI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vuH-Yw-oWW">
+                                <rect key="frame" x="132" y="597" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="canGreen">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="blackBtn:" destination="BV1-FR-VrT" eventType="touchUpInside" id="Ac0-nI-rGU"/>
+                                    <action selector="greenBtn:" destination="BV1-FR-VrT" eventType="touchUpInside" id="OxW-7X-4sL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xd0-eC-Xnm">
+                                <rect key="frame" x="190" y="597" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="canOrange">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="blackBtn:" destination="BV1-FR-VrT" eventType="touchUpInside" id="nkc-WI-5eu"/>
+                                    <action selector="orangeBtn:" destination="BV1-FR-VrT" eventType="touchUpInside" id="kko-nU-ZFQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CD6-Bk-DQA">
+                                <rect key="frame" x="248" y="597" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="canRed">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="blackBtn:" destination="BV1-FR-VrT" eventType="touchUpInside" id="ABM-jr-Gw2"/>
+                                    <action selector="redBtn:" destination="BV1-FR-VrT" eventType="touchUpInside" id="GVC-bv-etF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2PL-Kk-lV2">
+                                <rect key="frame" x="306" y="597" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="canWhite">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="blackBtn:" destination="BV1-FR-VrT" eventType="touchUpInside" id="IUK-qd-nMu"/>
+                                    <action selector="whiteBtn:" destination="BV1-FR-VrT" eventType="touchUpInside" id="oK5-2m-C4b"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ife-YS-vMK" customClass="customBtn" customModule="SpAy_R" customModuleProvider="target">
+                                <rect key="frame" x="324" y="40" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="QEL-Qr-HQ4"/>
+                                    <constraint firstAttribute="width" constant="35" id="s1n-jg-r7j"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="X">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1B8-5F-lNJ">
+                                <rect key="frame" x="152" y="510" width="70" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="canWhite"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Opy-Da-Fxi" firstAttribute="centerX" secondItem="jkb-gi-giz" secondAttribute="centerX" id="962-hc-7Q4"/>
+                            <constraint firstItem="QjL-BN-83G" firstAttribute="leading" secondItem="9de-7U-H5f" secondAttribute="leading" id="CWt-SC-7b7"/>
+                            <constraint firstItem="ife-YS-vMK" firstAttribute="top" secondItem="9de-7U-H5f" secondAttribute="top" constant="20" id="RZL-yJ-Rfg"/>
+                            <constraint firstItem="9de-7U-H5f" firstAttribute="trailing" secondItem="ife-YS-vMK" secondAttribute="trailing" constant="16" id="VnW-r5-fom"/>
+                            <constraint firstItem="QjL-BN-83G" firstAttribute="trailing" secondItem="9de-7U-H5f" secondAttribute="trailing" id="mne-b4-GTw"/>
+                            <constraint firstItem="QjL-BN-83G" firstAttribute="top" secondItem="jkb-gi-giz" secondAttribute="top" id="p60-L1-Svi"/>
+                            <constraint firstItem="Opy-Da-Fxi" firstAttribute="centerY" secondItem="jkb-gi-giz" secondAttribute="centerY" id="sOC-al-TEc"/>
+                            <constraint firstItem="QjL-BN-83G" firstAttribute="bottom" secondItem="9de-7U-H5f" secondAttribute="bottom" id="vmv-jO-kSA"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="9de-7U-H5f"/>
+                    </view>
                     <connections>
-                        <outlet property="sceneView" destination="BrB-h1-WRS" id="5nT-qQ-ynl"/>
+                        <outlet property="drawButton" destination="1B8-5F-lNJ" id="3ae-SY-AV0"/>
+                        <outlet property="reticle" destination="Opy-Da-Fxi" id="hD8-fs-Gl0"/>
+                        <outlet property="sceneView" destination="QjL-BN-83G" id="j8n-2m-C7M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="32.799999999999997" y="31.934032983508249"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="canBlack" width="300" height="299"/>
+        <image name="canBlue" width="300" height="299"/>
+        <image name="canGreen" width="300" height="299"/>
+        <image name="canOrange" width="300" height="299"/>
+        <image name="canRed" width="300" height="299"/>
+        <image name="canWhite" width="300" height="299"/>
+    </resources>
 </document>

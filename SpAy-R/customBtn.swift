@@ -17,5 +17,13 @@ class customBtn: UIButton {
         // Drawing code
     }
     */
+    
+    override func awakeFromNib() {
+        backgroundColor = UIColor.lightGray
+        layer.cornerRadius = 10.0
+        
+        layer.borderWidth = 2.0
+        layer.borderColor = UIColor.white.cgColor
+    }
 
 }

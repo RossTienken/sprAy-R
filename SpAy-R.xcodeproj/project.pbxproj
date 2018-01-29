@@ -15,6 +15,7 @@
 		678561DE201FB5AD0064800D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 678561DC201FB5AD0064800D /* LaunchScreen.storyboard */; };
 		678561E9201FB5AD0064800D /* SpAy_RTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678561E8201FB5AD0064800D /* SpAy_RTests.swift */; };
 		678561F4201FB5AD0064800D /* SpAy_RUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678561F3201FB5AD0064800D /* SpAy_RUITests.swift */; };
+		67856202201FC2E50064800D /* customBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67856201201FC2E50064800D /* customBtn.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		678561EF201FB5AD0064800D /* SpAy-RUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SpAy-RUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		678561F3201FB5AD0064800D /* SpAy_RUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpAy_RUITests.swift; sourceTree = "<group>"; };
 		678561F5201FB5AD0064800D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		67856201201FC2E50064800D /* customBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customBtn.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				678561DA201FB5AD0064800D /* Assets.xcassets */,
 				678561DC201FB5AD0064800D /* LaunchScreen.storyboard */,
 				678561DF201FB5AD0064800D /* Info.plist */,
+				67856201201FC2E50064800D /* customBtn.swift */,
 			);
 			path = "SpAy-R";
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67856202201FC2E50064800D /* customBtn.swift in Sources */,
 				678561D6201FB5AD0064800D /* ViewController.swift in Sources */,
 				678561D2201FB5AD0064800D /* AppDelegate.swift in Sources */,
 			);
@@ -436,6 +440,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SWPGSUWUTN;
 				INFOPLIST_FILE = "SpAy-R/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -454,6 +459,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SWPGSUWUTN;
 				INFOPLIST_FILE = "SpAy-R/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
