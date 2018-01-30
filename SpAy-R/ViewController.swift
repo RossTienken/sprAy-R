@@ -16,11 +16,18 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     @IBOutlet weak var drawButton: UIButton!
     @IBOutlet weak var refreshBtn: customButton!
     @IBOutlet weak var reticle: UILabel!
+    @IBOutlet weak var radSlider: UISlider!
     
     var showRefresh = false
     var currentColor = UIColor.white
     var colorName = "white"
     var canvasNode = SCNNode()
+    var newRad = Float(0.02)
+    
+    @IBAction func newRadValue(_ sender: Any) {
+        newRad = radSlider.value
+        reticle.font = reticle.font.withSize(CGFloat(newRad * 1000))
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +56,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         let cameraPosition = SCNVector3Make(cameraLocation.x + cameraOrientation.x, cameraLocation.y + cameraOrientation.y, cameraLocation.z + cameraOrientation.z)
         
-        let sphere = SCNSphere(radius: 0.02)
+        
+        let sphere = SCNSphere(radius: CGFloat(newRad))
         let material = SCNMaterial()
         DispatchQueue.main.async {
             if self.drawButton.isTouchInside {
