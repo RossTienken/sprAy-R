@@ -12,10 +12,10 @@
 		678561D6201FB5AD0064800D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678561D5201FB5AD0064800D /* ViewController.swift */; };
 		678561D9201FB5AD0064800D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 678561D7201FB5AD0064800D /* Main.storyboard */; };
 		678561DB201FB5AD0064800D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 678561DA201FB5AD0064800D /* Assets.xcassets */; };
-		678561DE201FB5AD0064800D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 678561DC201FB5AD0064800D /* LaunchScreen.storyboard */; };
 		678561E9201FB5AD0064800D /* SpAy_RTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678561E8201FB5AD0064800D /* SpAy_RTests.swift */; };
 		678561F4201FB5AD0064800D /* SpAy_RUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678561F3201FB5AD0064800D /* SpAy_RUITests.swift */; };
 		67856204201FDB530064800D /* customButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67856203201FDB530064800D /* customButton.swift */; };
+		67CFA808202104320046FFBF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 678561DC201FB5AD0064800D /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -236,7 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				678561D4201FB5AD0064800D /* art.scnassets in Resources */,
-				678561DE201FB5AD0064800D /* LaunchScreen.storyboard in Resources */,
+				67CFA808202104320046FFBF /* LaunchScreen.storyboard in Resources */,
 				678561DB201FB5AD0064800D /* Assets.xcassets in Resources */,
 				678561D9201FB5AD0064800D /* Main.storyboard in Resources */,
 			);
