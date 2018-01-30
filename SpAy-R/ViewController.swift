@@ -16,11 +16,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, RPPreviewViewControll
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet weak var drawButton: UIButton!
     @IBOutlet weak var reticle: UILabel!
-    @IBOutlet var statusLabel: UILabel!
-    @IBOutlet var colorPicker: UISegmentedControl!
-    @IBOutlet var colorDisplay: UIView!
-    @IBOutlet var recordButton: UIButton!
-    @IBOutlet var micToggle: UISwitch!
+    @IBOutlet var recordButton: UILabel!
     
     var currentColor = UIColor.white
     
@@ -146,9 +142,9 @@ class ViewController: UIViewController, ARSCNViewDelegate, RPPreviewViewControll
     }
     
     func viewReset() {
-        micToggle.isEnabled = true
-        statusLabel.text = "Ready to Record"
-        statusLabel.textColor = UIColor.black
+//        micToggle.isEnabled = true
+//        statusLabel.text = "Ready to Record"
+//        statusLabel.textColor = UIColor.black
         recordButton.backgroundColor = UIColor.green
     }
     
@@ -169,12 +165,12 @@ class ViewController: UIViewController, ARSCNViewDelegate, RPPreviewViewControll
             return
         }
         
-        if micToggle.isOn {
-            recorder.isMicrophoneEnabled = true
-        } else {
-            recorder.isMicrophoneEnabled = false
-        }
-        
+//        if micToggle.isOn {
+//            recorder.isMicrophoneEnabled = true
+//        } else {
+//            recorder.isMicrophoneEnabled = false
+//        }
+//        
         recorder.startRecording{ [unowned self] (error) in
             
             guard error == nil else {
@@ -183,10 +179,10 @@ class ViewController: UIViewController, ARSCNViewDelegate, RPPreviewViewControll
             }
             
             print("Started Recording Successfully")
-            self.micToggle.isEnabled = false
+//            self.micToggle.isEnabled = false
             self.recordButton.backgroundColor = UIColor.red
-            self.statusLabel.text = "Recording..."
-            self.statusLabel.textColor = UIColor.red
+//            self.statusLabel.text = "Recording..."
+//            self.statusLabel.textColor = UIColor.red
             
             self.isRecording = true
             
