@@ -63,7 +63,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 let sphereNode = SCNNode(geometry: sphere)
                 sphereNode.position = SCNVector3(x: cameraPosition.x, y: cameraPosition.y, z: cameraPosition.z)
                 
-                print(self.colorName)
                 self.canvasNode.addChildNode(sphereNode)
                 
             }
