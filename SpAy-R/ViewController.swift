@@ -158,56 +158,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Reset tracking and/or remove existing anchors if consistent tracking is required
 
     }
-    @IBAction func build(_ sender: Any) {
-
-        let points = drawPOS
-        var i = 0
-        for point in points {
-            if(i != 0) {
-                let radius = CGFloat(point[4] as! Float)
-                let sphere = SCNSphere(radius: CGFloat(radius))
-                let material = SCNMaterial()
-
-
-                DispatchQueue.main.async {
-                    let color = self.getColor(point[3] as! String)
-                    
-                    material.diffuse.contents = color
-                    sphere.materials = [material]
-
-                    if self.showRefresh == false {
-                        self.showButton()
-                    }
-                    let sphereNode = SCNNode(geometry: sphere)
-
-                    sphereNode.position = SCNVector3(x: point[0] as! Float, y: point[1] as! Float, z: point[2] as! Float)
-
-                    self.canvasNode.addChildNode(sphereNode)
-                }
-            }else { i = 1}
-        }
-
-    }
-
-    func getColor(_ color:String) -> Any{
-        switch color {
-            case "green":
-               return UIColor.green
-            case "red":
-                return UIColor.red
-            case "blue":
-                return UIColor.blue
-            case "orange":
-                return UIColor.orange
-            case "black":
-                return UIColor.black
-            case "white":
-                return UIColor.white
-        default:
-            return UIColor.white
-
-        }
-    }
     
     @IBAction func build(_ sender: Any) {
         
