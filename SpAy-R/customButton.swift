@@ -48,3 +48,30 @@ class customDraw: UIButton {
     
 }
 
+class customWheelButton: UIButton {
+    var color: UIColor!
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    init(frame: CGRect, color: UIColor) {
+        super.init(frame: frame)
+        
+        setViewColor(color)
+    }
+    
+    func setViewColor(_ _color: UIColor) {
+        color = _color
+        setBackgroundColor()
+    }
+    
+    func setBackgroundColor() {
+        layer.borderWidth = 5.0
+        layer.borderColor = color.cgColor
+        layer.cornerRadius = 0.5 * bounds.size.width
+        
+        backgroundColor = color
+    }
+}
+

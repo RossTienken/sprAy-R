@@ -19,7 +19,14 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     @IBOutlet weak var reticle: UILabel!
     @IBOutlet weak var radSlider: UISlider!
     
-    //color picker
+    // Color wheel
+    @IBOutlet weak var wheelBackground: UIImageView!
+    @IBOutlet weak var wheelBackColor: UIImageView!
+    @IBOutlet var colorPicker: SwiftHSVColorPicker!
+    @IBOutlet weak var selectColor: customWheelButton!
+    @IBOutlet weak var selectLabel: UILabel!
+    
+    // default color choices
     @IBOutlet weak var showRainbow: UIButton!
     @IBOutlet weak var colorBack: UIImageView!  //background color
     
@@ -36,7 +43,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     @IBOutlet weak var greenCan: UIButton!
     @IBOutlet weak var darkGreenCan: UIButton!
     @IBOutlet weak var whiteCan: UIButton!
-
+    @IBOutlet weak var rainbowCan: UIButton!
+    @IBOutlet weak var rainbowLabel: UILabel!
+    
     var showRefresh = false
     var showPicker = false
     var currentColor = UIColor.white
@@ -64,7 +73,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
         // Set the scene to the view
         sceneView.scene = scene
-        sceneView.scene.rootNode.addChildNode(canvasNode)        
+        sceneView.scene.rootNode.addChildNode(canvasNode)
+        
+        // Color picker
+        colorPicker.setViewColor(UIColor.red)
     }
 
     func renderer(_ renderer: SCNSceneRenderer, willRenderScene scene: SCNScene, atTime time: TimeInterval) {
@@ -76,8 +88,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         let cameraOrientation = SCNVector3(x: -0.75 * cameraTransform.m31, y: -0.75 * cameraTransform.m32, z: -0.75 * cameraTransform.m33)
 
         let cameraPosition = SCNVector3Make(cameraLocation.x + cameraOrientation.x, cameraLocation.y + cameraOrientation.y, cameraLocation.z + cameraOrientation.z)
-
-
+        
         let sphere = SCNSphere(radius: CGFloat(newRad))
         let material = SCNMaterial()
         DispatchQueue.main.async {
@@ -240,6 +251,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         self.greenCan.isHidden = false
         self.darkGreenCan.isHidden = false
         self.whiteCan.isHidden = false
+        self.rainbowCan.isHidden = false
+        self.rainbowLabel.isHidden = false
     }
     
     func hideColors() {
@@ -259,6 +272,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         greenCan.isHidden = true
         darkGreenCan.isHidden = true
         whiteCan.isHidden = true
+        rainbowCan.isHidden = true
+        rainbowLabel.isHidden = true
     }
     
 
@@ -393,5 +408,31 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
         self.hideColors()
     }
-
+    
+    @IBAction func rainbowBtn(_ sender: Any) {
+        wheelBackground.isHidden = false
+        wheelBackColor.isHidden = false
+        colorPicker.isHidden = false
+        selectColor.isHidden = false
+        selectLabel.isHidden = false
+    }
+    
+    @IBAction func selectBtn(_ sender: Any) {
+        // color changes
+        currentColor = colorPicker.color
+        reticle.textColor = colorPicker.color
+        drawButton.backgroundColor = colorPicker.color
+        drawButton.layer.borderColor = colorPicker.color.cgColor
+        
+        // hide color options
+        self.hideColors()
+        
+        
+        wheelBackground.isHidden = true
+        wheelBackColor.isHidden = true
+        colorPicker.isHidden = true
+        selectColor.isHidden = true
+        selectLabel.isHidden = true
+    }
+    
 }
