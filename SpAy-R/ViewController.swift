@@ -47,7 +47,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     @IBAction func newRadValue(_ sender: Any) {
         newRad = radSlider.value
-        reticle.font = reticle.font.withSize(CGFloat(newRad * 2000))
+        reticle.font = reticle.font.withSize(CGFloat(newRad * 1500))
     }
 
     override func viewDidLoad() {
@@ -73,7 +73,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         }
         let cameraTransform = cameraPoint.transform
         let cameraLocation = SCNVector3(x: cameraTransform.m41, y: cameraTransform.m42, z: cameraTransform.m43)
-        let cameraOrientation = SCNVector3(x: -0.5 * cameraTransform.m31, y: -0.5 * cameraTransform.m32, z: -0.5 * cameraTransform.m33)
+        let cameraOrientation = SCNVector3(x: -0.75 * cameraTransform.m31, y: -0.75 * cameraTransform.m32, z: -0.75 * cameraTransform.m33)
 
         let cameraPosition = SCNVector3Make(cameraLocation.x + cameraOrientation.x, cameraLocation.y + cameraOrientation.y, cameraLocation.z + cameraOrientation.z)
 
@@ -97,8 +97,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 sphereNode.position = SCNVector3(x: cameraPosition.x, y: cameraPosition.y, z: cameraPosition.z)
                 
                 let newPOS = [cameraPosition.x, cameraPosition.y, cameraPosition.z, self.colorName, self.newRad] as [Any]
-                self.drawPOS.append(newPOS)
                 
+                self.drawPOS.append(newPOS)
                 self.canvasNode.addChildNode(sphereNode)
             }
         }
@@ -218,7 +218,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         case "white":
             return UIColor(red: 1, green: 1, blue: 1, alpha: 1.0)
         default:
-            return UIColor.white
+            return UIColor(red: 1, green: 1, blue: 1, alpha: 1.0)
             
         }
     }
