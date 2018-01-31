@@ -15,6 +15,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet weak var drawButton: UIButton!
     @IBOutlet weak var refreshBtn: customButton!
+    @IBOutlet weak var saveBtn: customButton!
     @IBOutlet weak var reticle: UILabel!
     @IBOutlet weak var radSlider: UISlider!
     
@@ -269,6 +270,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         }
         refreshBtn.isHidden = true
         showRefresh = false
+        saveBtn.isHidden = false
     }
     
     

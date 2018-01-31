@@ -27,10 +27,15 @@
                                 <nil key="highlightedColor"/>
                                 <size key="shadowOffset" width="-2" height="-1"/>
                             </label>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="splatter" translatesAutoresizingMaskIntoConstraints="NO" id="R5C-SD-m4W">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eq9-cF-Zxq" customClass="customButton" customModule="SpAy_R" customModuleProvider="target">
                                 <rect key="frame" x="325" y="40" width="35" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="refresh"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <state key="normal" title="X"/>
                                 <connections>
                                     <action selector="refreshSrc:" destination="BV1-FR-VrT" eventType="touchUpInside" id="nRE-AT-W3z"/>
                                 </connections>
@@ -52,10 +57,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="swirlcan.svg.med"/>
                             </button>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="splatter" translatesAutoresizingMaskIntoConstraints="NO" id="R5C-SD-m4W">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MCz-2r-U57">
                                 <rect key="frame" x="40" y="96" width="75" height="75"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -169,11 +170,10 @@
                                     <action selector="whiteBtn:" destination="BV1-FR-VrT" eventType="touchUpInside" id="oK5-2m-C4b"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GjW-UF-ljg" customClass="customButton" customModule="SpAy_R" customModuleProvider="target">
-                                <rect key="frame" x="263" y="40" width="47" height="36"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GjW-UF-ljg" customClass="customButton" customModule="SpAy_R" customModuleProvider="target">
+                                <rect key="frame" x="282" y="40" width="35" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <state key="normal" title="Save">
+                                <state key="normal" title="Save" image="refresh">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -208,6 +208,7 @@
                         <outlet property="redCan" destination="CD6-Bk-DQA" id="iD5-il-GUN"/>
                         <outlet property="refreshBtn" destination="eq9-cF-Zxq" id="CCf-rm-qmX"/>
                         <outlet property="reticle" destination="Opy-Da-Fxi" id="pi9-7W-WQ0"/>
+                        <outlet property="saveBtn" destination="GjW-UF-ljg" id="GbO-3l-oqA"/>
                         <outlet property="sceneView" destination="QjL-BN-83G" id="j8n-2m-C7M"/>
                         <outlet property="showRainbow" destination="Svm-T6-5Pm" id="hFf-W5-qHZ"/>
                         <outlet property="whiteCan" destination="2PL-Kk-lV2" id="GWH-SC-kWP"/>
