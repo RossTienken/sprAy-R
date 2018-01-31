@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6726C950202251EB006F2FFA /* SwiftHSVColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6726C94B202251EB006F2FFA /* SwiftHSVColorPicker.swift */; };
+		6726C951202251EB006F2FFA /* SelectedColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6726C94C202251EB006F2FFA /* SelectedColorView.swift */; };
+		6726C952202251EB006F2FFA /* BrightnessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6726C94D202251EB006F2FFA /* BrightnessView.swift */; };
+		6726C953202251EB006F2FFA /* ColorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6726C94E202251EB006F2FFA /* ColorUtils.swift */; };
+		6726C954202251EB006F2FFA /* ColorWheel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6726C94F202251EB006F2FFA /* ColorWheel.swift */; };
 		678561D2201FB5AD0064800D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678561D1201FB5AD0064800D /* AppDelegate.swift */; };
 		678561D4201FB5AD0064800D /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 678561D3201FB5AD0064800D /* art.scnassets */; };
 		678561D6201FB5AD0064800D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678561D5201FB5AD0064800D /* ViewController.swift */; };
@@ -38,6 +43,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6726C94B202251EB006F2FFA /* SwiftHSVColorPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftHSVColorPicker.swift; sourceTree = "<group>"; };
+		6726C94C202251EB006F2FFA /* SelectedColorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedColorView.swift; sourceTree = "<group>"; };
+		6726C94D202251EB006F2FFA /* BrightnessView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrightnessView.swift; sourceTree = "<group>"; };
+		6726C94E202251EB006F2FFA /* ColorUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorUtils.swift; sourceTree = "<group>"; };
+		6726C94F202251EB006F2FFA /* ColorWheel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorWheel.swift; sourceTree = "<group>"; };
 		678561CE201FB5AD0064800D /* SpAy-R.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SpAy-R.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		678561D1201FB5AD0064800D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		678561D3201FB5AD0064800D /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -113,6 +123,11 @@
 				678561DC201FB5AD0064800D /* LaunchScreen.storyboard */,
 				678561DF201FB5AD0064800D /* Info.plist */,
 				67856203201FDB530064800D /* customButton.swift */,
+				6726C94D202251EB006F2FFA /* BrightnessView.swift */,
+				6726C94E202251EB006F2FFA /* ColorUtils.swift */,
+				6726C94F202251EB006F2FFA /* ColorWheel.swift */,
+				6726C94C202251EB006F2FFA /* SelectedColorView.swift */,
+				6726C94B202251EB006F2FFA /* SwiftHSVColorPicker.swift */,
 				67A025DE20216E4A00EAF1DB /* StoryboardiPad.storyboard */,
 				67A025E02022341400EAF1DB /* LaunchScreen_iPad.storyboard */,
 			);
@@ -272,8 +287,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				678561D6201FB5AD0064800D /* ViewController.swift in Sources */,
+				6726C953202251EB006F2FFA /* ColorUtils.swift in Sources */,
 				678561D2201FB5AD0064800D /* AppDelegate.swift in Sources */,
+				6726C951202251EB006F2FFA /* SelectedColorView.swift in Sources */,
 				67856204201FDB530064800D /* customButton.swift in Sources */,
+				6726C950202251EB006F2FFA /* SwiftHSVColorPicker.swift in Sources */,
+				6726C952202251EB006F2FFA /* BrightnessView.swift in Sources */,
+				6726C954202251EB006F2FFA /* ColorWheel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

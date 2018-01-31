@@ -175,13 +175,45 @@
                                     <action selector="whiteBtn:" destination="BV1-FR-VrT" eventType="touchUpInside" id="oK5-2m-C4b"/>
                                 </connections>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dbN-8Z-Vr5">
+                                <rect key="frame" x="152" y="494" width="75" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="swirlcan.svg.med"/>
+                                <connections>
+                                    <action selector="rainbowBtn:" destination="BV1-FR-VrT" eventType="touchUpInside" id="Jdk-uV-XRb"/>
+                                </connections>
+                            </button>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wDO-4b-89M">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.54957065935802296" green="0.86869936372558887" blue="0.8828125" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gbl-5U-mUF" customClass="SwiftHSVColorPicker" customModule="SpAy_R" customModuleProvider="target">
+                                <rect key="frame" x="37.5" y="30" width="300" height="388"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="388" id="ZN9-mO-CoD"/>
+                                    <constraint firstAttribute="width" constant="300" id="eY7-YN-T41"/>
+                                </constraints>
+                            </view>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="faU-Us-zmr" customClass="customWheelButton" customModule="SpAy_R" customModuleProvider="target">
+                                <rect key="frame" x="152" y="494" width="75" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="canTransparent">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectBtn:" destination="BV1-FR-VrT" eventType="touchUpInside" id="X8U-MK-MSH"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="QjL-BN-83G" firstAttribute="top" secondItem="jkb-gi-giz" secondAttribute="top" id="6Sm-0w-WMT"/>
+                            <constraint firstItem="gbl-5U-mUF" firstAttribute="top" secondItem="jkb-gi-giz" secondAttribute="top" constant="30" id="6tx-Oy-wbM"/>
                             <constraint firstItem="Opy-Da-Fxi" firstAttribute="centerX" secondItem="jkb-gi-giz" secondAttribute="centerX" id="962-hc-7Q4"/>
                             <constraint firstItem="QjL-BN-83G" firstAttribute="leading" secondItem="9de-7U-H5f" secondAttribute="leading" id="Eaf-Qp-jcb"/>
                             <constraint firstItem="QjL-BN-83G" firstAttribute="trailing" secondItem="9de-7U-H5f" secondAttribute="trailing" id="hWA-zd-hhn"/>
+                            <constraint firstItem="gbl-5U-mUF" firstAttribute="centerX" secondItem="jkb-gi-giz" secondAttribute="centerX" id="knh-7B-3GD"/>
                             <constraint firstItem="Opy-Da-Fxi" firstAttribute="centerY" secondItem="jkb-gi-giz" secondAttribute="centerY" id="sOC-al-TEc"/>
                             <constraint firstItem="QjL-BN-83G" firstAttribute="bottom" secondItem="9de-7U-H5f" secondAttribute="bottom" id="tGa-FV-9S3"/>
                         </constraints>
@@ -191,6 +223,7 @@
                         <outlet property="blackCan" destination="MCz-2r-U57" id="5rB-rd-w9j"/>
                         <outlet property="blueCan" destination="ypn-cZ-MXw" id="lEC-XL-6mV"/>
                         <outlet property="colorBack" destination="R5C-SD-m4W" id="jmV-kB-JXZ"/>
+                        <outlet property="colorPicker" destination="gbl-5U-mUF" id="1Ef-r5-qX3"/>
                         <outlet property="cyanCan" destination="LtO-GK-e5D" id="jQ9-Og-XTx"/>
                         <outlet property="darkGreenCan" destination="1DS-NU-czS" id="mBi-fv-HLB"/>
                         <outlet property="drawButton" destination="1B8-5F-lNJ" id="3ae-SY-AV0"/>
@@ -200,12 +233,15 @@
                         <outlet property="pinkCan" destination="WWi-tu-5vh" id="eem-rk-9A2"/>
                         <outlet property="purpleCan" destination="R6k-kr-YeQ" id="Eb4-tk-cMX"/>
                         <outlet property="radSlider" destination="IUc-iL-Zh3" id="YHU-8a-agV"/>
+                        <outlet property="rainbowCan" destination="dbN-8Z-Vr5" id="wqz-ua-Qab"/>
                         <outlet property="redCan" destination="CD6-Bk-DQA" id="iD5-il-GUN"/>
                         <outlet property="refreshBtn" destination="eq9-cF-Zxq" id="CCf-rm-qmX"/>
                         <outlet property="reticle" destination="Opy-Da-Fxi" id="pi9-7W-WQ0"/>
                         <outlet property="saveBtn" destination="GjW-UF-ljg" id="GbO-3l-oqA"/>
                         <outlet property="sceneView" destination="QjL-BN-83G" id="j8n-2m-C7M"/>
+                        <outlet property="selectColor" destination="faU-Us-zmr" id="Q7k-CJ-nhH"/>
                         <outlet property="showRainbow" destination="Svm-T6-5Pm" id="hFf-W5-qHZ"/>
+                        <outlet property="wheelBackground" destination="wDO-4b-89M" id="YcY-7B-i8b"/>
                         <outlet property="whiteCan" destination="2PL-Kk-lV2" id="GWH-SC-kWP"/>
                         <outlet property="yellowCan" destination="nDo-ZA-RDy" id="7uP-DP-qeG"/>
                     </connections>

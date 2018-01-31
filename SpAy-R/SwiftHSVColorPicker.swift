@@ -11,6 +11,8 @@ open class SwiftHSVColorPicker: UIView, ColorWheelDelegate, BrightnessViewDelega
     var colorWheel: ColorWheel!
     var brightnessView: BrightnessView!
     var selectedColorView: SelectedColorView!
+    var sprayBtn: customWheelButton!
+
 
     open var color: UIColor!
     var hue: CGFloat = 1.0
@@ -60,6 +62,11 @@ open class SwiftHSVColorPicker: UIView, ColorWheelDelegate, BrightnessViewDelega
         // Add selectedColorView as a subview of this view
         self.addSubview(selectedColorView)
         
+        // Spray button
+        sprayBtn = customWheelButton(frame: CGRect(x: 114.5, y:464, width: 75, height: 75), color: self.color)
+        // Add selectedColorView as a subview of this view
+        self.addSubview(sprayBtn)
+        
         // Init new ColorWheel subview
         colorWheel = ColorWheel(frame: CGRect(x: centeredX, y: selectedColorView.frame.maxY, width: colorWheelSize, height: colorWheelSize), color: self.color)
         colorWheel.delegate = self
@@ -79,6 +86,7 @@ open class SwiftHSVColorPicker: UIView, ColorWheelDelegate, BrightnessViewDelega
         self.color = UIColor(hue: self.hue, saturation: self.saturation, brightness: self.brightness, alpha: 1.0)
         brightnessView.setViewColor(self.color)
         selectedColorView.setViewColor(self.color)
+        sprayBtn.setViewColor(self.color)
     }
     
     func brightnessSelected(_ brightness: CGFloat) {
@@ -86,5 +94,6 @@ open class SwiftHSVColorPicker: UIView, ColorWheelDelegate, BrightnessViewDelega
         self.color = UIColor(hue: self.hue, saturation: self.saturation, brightness: self.brightness, alpha: 1.0)
         colorWheel.setViewBrightness(brightness)
         selectedColorView.setViewColor(self.color)
+        sprayBtn.setViewColor(self.color)
     }
 }

@@ -50,6 +50,11 @@ class BrightnessView: UIView {
         // Insert the colorLayer into this views layer as a sublayer
         self.layer.insertSublayer(colorLayer, below: layer)
         
+        // Border
+        colorLayer.cornerRadius = 10.0
+        colorLayer.borderWidth = 2.0
+        colorLayer.borderColor = UIColor.lightGray.cgColor
+        
         // Add the indicator
         indicator.strokeColor = indicatorColor
         indicator.fillColor = indicatorColor
