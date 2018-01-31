@@ -18,9 +18,29 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     @IBOutlet weak var reticle: UILabel!
     @IBOutlet weak var radSlider: UISlider!
     
+    //color picker
+    @IBOutlet weak var showRainbow: UIButton!
+    @IBOutlet weak var colorBack: UIImageView!  //background color
+    
+    //spray cans
+    @IBOutlet weak var blackCan: UIButton!
+    @IBOutlet weak var blueCan: UIButton!
+    @IBOutlet weak var cyanCan: UIButton!
+    @IBOutlet weak var purpleCan: UIButton!
+    @IBOutlet weak var pinkCan: UIButton!
+    @IBOutlet weak var maroonCan: UIButton!
+    @IBOutlet weak var redCan: UIButton!
+    @IBOutlet weak var orangeCan: UIButton!
+    @IBOutlet weak var yellowCan: UIButton!
+    @IBOutlet weak var greenCan: UIButton!
+    @IBOutlet weak var darkGreenCan: UIButton!
+    @IBOutlet weak var whiteCan: UIButton!
+    
+    
+    
     var showRefresh = false
+    var showPicker = false
     var currentColor = UIColor.white
-    var colorName = "white"
     var canvasNode = SCNNode()
     var newRad = Float(0.02)
     
@@ -44,6 +64,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Set the scene to the view
         sceneView.scene = scene
         sceneView.scene.rootNode.addChildNode(canvasNode)
+        
     }
     
     func renderer(_ renderer: SCNSceneRenderer, willRenderScene scene: SCNScene, atTime time: TimeInterval) {
@@ -60,6 +81,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         let sphere = SCNSphere(radius: CGFloat(newRad))
         let material = SCNMaterial()
         DispatchQueue.main.async {
+            if self.showRainbow.isTouchInside {
+                self.showPicker = true
+                self.showColors()
+            }
             if self.drawButton.isTouchInside {
                 material.diffuse.contents = self.currentColor
                 sphere.materials = [material]
@@ -130,6 +155,27 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Reset tracking and/or remove existing anchors if consistent tracking is required
         
     }
+    
+    func showColors() {
+        //background color
+        self.colorBack.isHidden = false
+        
+        //spray cans
+        self.blackCan.isHidden = false
+        self.blueCan.isHidden = false
+        self.redCan.isHidden = false
+    }
+    
+    func hideColors() {
+        // background color
+        colorBack.isHidden = true
+        
+        //spray cans
+        blackCan.isHidden = true
+        blueCan.isHidden = true
+        redCan.isHidden = true
+    }
+    
 
     @IBAction func refreshSrc(_ sender: Any) {
         self.canvasNode.enumerateChildNodes { (node, _) in
@@ -138,35 +184,67 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         refreshBtn.isHidden = true
         showRefresh = false
     }
+    
+    
     @IBAction func blackBtn(_ sender: Any) {
-        colorName = "black"
-        currentColor = UIColor.black
-        reticle.textColor = UIColor.black
+        currentColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
+        reticle.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
     }
+    
+    @IBAction func cyanBtn(_ sender: Any) {
+        currentColor = UIColor(red: 0.1333, green: 0.9176, blue: 0.9608, alpha: 1.0)
+        reticle.textColor = UIColor(red: 0.1333, green: 0.9176, blue: 0.9608, alpha: 1.0)
+    }
+    
     @IBAction func blueBtn(_ sender: Any) {
-        colorName = "blue"
-        currentColor = UIColor.blue
-        reticle.textColor = UIColor.blue
+        currentColor = UIColor(red: 0, green: 0, blue: 1, alpha: 1.0)
+        reticle.textColor = UIColor(red: 0, green: 0, blue: 1, alpha: 1.0)
     }
-    @IBAction func greenBtn(_ sender: Any) {
-        colorName = "green"
-        currentColor = UIColor.green
-        reticle.textColor = UIColor.green
+    
+    @IBAction func purpleBtn(_ sender: Any) {
+        currentColor = UIColor(red: 0.8, green: 0, blue: 1, alpha: 1.0)
+        reticle.textColor = UIColor(red: 0.8, green: 0, blue: 1, alpha: 1.0)
     }
-    @IBAction func orangeBtn(_ sender: Any) {
-        colorName = "orange"
-        currentColor = UIColor.orange
-        reticle.textColor = UIColor.orange
+    @IBAction func pinkBtn(_ sender: Any) {
+        currentColor = UIColor(red: 1, green: 0.3686, blue: 0.949, alpha: 1.0)
+        reticle.textColor = UIColor(red: 1, green: 0.3686, blue: 0.949, alpha: 1.0)
     }
+    
     @IBAction func redBtn(_ sender: Any) {
-        colorName = "red"
-        currentColor = UIColor.red
-        reticle.textColor = UIColor.red
+        currentColor = UIColor(red: 1, green: 0, blue: 0, alpha: 1.0)
+        reticle.textColor = UIColor(red: 1, green: 0, blue: 0, alpha: 1.0)
+        drawButton.setImage(#imageLiteral(resourceName: "canRed"), for: .normal)
+        self.hideColors()
     }
+    
+    @IBAction func maroonBtn(_ sender: Any) {
+        currentColor = UIColor(red: 0.502, green: 0, blue: 0, alpha: 1.0)
+        reticle.textColor = UIColor(red: 0.502, green: 0, blue: 0, alpha: 1.0)
+    }
+    
+    @IBAction func orangeBtn(_ sender: Any) {
+        currentColor = UIColor(red: 0.9608, green: 0.549, blue: 0.1333, alpha: 1.0)
+        reticle.textColor = UIColor(red: 0.9608, green: 0.549, blue: 0.1333, alpha: 1.0)
+    }
+    
+    @IBAction func yellowBtn(_ sender: Any) {
+        currentColor = UIColor(red: 1, green: 1, blue: 0, alpha: 1.0)
+        reticle.textColor = UIColor(red: 1, green: 1, blue: 0, alpha: 1.0)
+    }
+    
+    @IBAction func greenBtn(_ sender: Any) {
+        currentColor = UIColor(red: 0, green: 0.6, blue: 0, alpha: 1.0)
+        reticle.textColor = UIColor(red: 0, green: 0.6, blue: 0, alpha: 1.0)
+    }
+    
+    @IBAction func darkGreenBtn(_ sender: Any) {
+        currentColor = UIColor(red: 0, green: 0.2, blue: 0, alpha: 1.0)
+        reticle.textColor = UIColor(red: 0, green: 0.2, blue: 0, alpha: 1.0)
+    }
+    
     @IBAction func whiteBtn(_ sender: Any) {
-        colorName = "white"
-        currentColor = UIColor.white
-        reticle.textColor = UIColor.white
+        currentColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1.0)
+        reticle.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1.0)
     }
     
 }
