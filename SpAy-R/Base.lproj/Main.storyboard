@@ -180,14 +180,6 @@
                                     <action selector="build:" destination="BV1-FR-VrT" eventType="touchUpInside" id="YQM-WJ-hUy"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HqD-eh-WVR">
-                                <rect key="frame" x="20" y="42" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="build:" destination="BV1-FR-VrT" eventType="touchUpInside" id="SUT-KB-a7G"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -201,13 +193,11 @@
                         <viewLayoutGuide key="safeArea" id="9de-7U-H5f"/>
                     </view>
                     <connections>
-
                         <outlet property="blackCan" destination="MCz-2r-U57" id="5rB-rd-w9j"/>
                         <outlet property="blueCan" destination="ypn-cZ-MXw" id="lEC-XL-6mV"/>
                         <outlet property="colorBack" destination="R5C-SD-m4W" id="jmV-kB-JXZ"/>
                         <outlet property="cyanCan" destination="LtO-GK-e5D" id="jQ9-Og-XTx"/>
                         <outlet property="darkGreenCan" destination="1DS-NU-czS" id="mBi-fv-HLB"/>
-
                         <outlet property="drawButton" destination="1B8-5F-lNJ" id="3ae-SY-AV0"/>
                         <outlet property="greenCan" destination="vuH-Yw-oWW" id="fAt-bo-rZQ"/>
                         <outlet property="maroonCan" destination="AWq-v3-eZy" id="yBL-5x-FSi"/>
