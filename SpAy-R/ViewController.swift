@@ -13,7 +13,7 @@ import ARKit
 class ViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
-    @IBOutlet weak var drawButton: UIButton!
+    @IBOutlet weak var drawButton: customDraw!
     @IBOutlet weak var refreshBtn: customButton!
     @IBOutlet weak var saveBtn: customButton!
     @IBOutlet weak var reticle: UILabel!
@@ -278,7 +278,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         colorName = "black"
         currentColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
         reticle.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
-        drawButton.setImage(#imageLiteral(resourceName: "canBlack"), for: .normal)
+        drawButton.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
+        drawButton.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0).cgColor
+
         self.hideColors()
     }
     
@@ -286,7 +288,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         colorName = "cyan"
         currentColor = UIColor(red: 0.1333, green: 0.9176, blue: 0.9608, alpha: 1.0)
         reticle.textColor = UIColor(red: 0.1333, green: 0.9176, blue: 0.9608, alpha: 1.0)
-        drawButton.setImage(#imageLiteral(resourceName: "canCyan"), for: .normal)
+        drawButton.backgroundColor = UIColor(red: 0.1333, green: 0.9176, blue: 0.9608, alpha: 1.0)
+        drawButton.layer.borderColor = UIColor(red: 0.1333, green: 0.9176, blue: 0.9608, alpha: 1.0).cgColor
+
         self.hideColors()
     }
     
@@ -294,7 +298,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         colorName = "blue"
         currentColor = UIColor(red: 0, green: 0, blue: 1, alpha: 1.0)
         reticle.textColor = UIColor(red: 0, green: 0, blue: 1, alpha: 1.0)
-        drawButton.setImage(#imageLiteral(resourceName: "canBlue"), for: .normal)
+        drawButton.backgroundColor = UIColor(red: 0, green: 0, blue: 1, alpha: 1.0)
+        drawButton.layer.borderColor = UIColor(red: 0, green: 0, blue: 1, alpha: 1.0).cgColor
+
         self.hideColors()
     }
     
@@ -302,7 +308,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         colorName = "purple"
         currentColor = UIColor(red: 0.8, green: 0, blue: 1, alpha: 1.0)
         reticle.textColor = UIColor(red: 0.8, green: 0, blue: 1, alpha: 1.0)
-        drawButton.setImage(#imageLiteral(resourceName: "canPurple"), for: .normal)
+        drawButton.backgroundColor = UIColor(red: 0.8, green: 0, blue: 1, alpha: 1.0)
+        drawButton.layer.borderColor = UIColor(red: 0.8, green: 0, blue: 1, alpha: 1.0).cgColor
+
         self.hideColors()
     }
     
@@ -310,7 +318,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         colorName = "pink"
         currentColor = UIColor(red: 1, green: 0.3686, blue: 0.949, alpha: 1.0)
         reticle.textColor = UIColor(red: 1, green: 0.3686, blue: 0.949, alpha: 1.0)
-        drawButton.setImage(#imageLiteral(resourceName: "canPink"), for: .normal)
+        drawButton.backgroundColor = UIColor(red: 1, green: 0.3686, blue: 0.949, alpha: 1.0)
+        drawButton.layer.borderColor = UIColor(red: 1, green: 0.3686, blue: 0.949, alpha: 1.0).cgColor
+
         self.hideColors()
     }
     
@@ -318,7 +328,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         colorName = "red"
         currentColor = UIColor(red: 1, green: 0, blue: 0, alpha: 1.0)
         reticle.textColor = UIColor(red: 1, green: 0, blue: 0, alpha: 1.0)
-        drawButton.setImage(#imageLiteral(resourceName: "canRed"), for: .normal)
+        drawButton.backgroundColor = UIColor(red: 1, green: 0, blue: 0, alpha: 1.0)
+        drawButton.layer.borderColor = UIColor(red: 1, green: 0, blue: 0, alpha: 1.0).cgColor
+
         self.hideColors()
     }
     
@@ -326,7 +338,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         colorName = "maroon"
         currentColor = UIColor(red: 0.502, green: 0, blue: 0, alpha: 1.0)
         reticle.textColor = UIColor(red: 0.502, green: 0, blue: 0, alpha: 1.0)
-        drawButton.setImage(#imageLiteral(resourceName: "canMaroon"), for: .normal)
+        drawButton.backgroundColor = UIColor(red: 0.502, green: 0, blue: 0, alpha: 1.0)
+        drawButton.layer.borderColor = UIColor(red: 0.502, green: 0, blue: 0, alpha: 1.0).cgColor
+
         self.hideColors()
     }
     
@@ -334,7 +348,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         colorName = "orange"
         currentColor = UIColor(red: 0.9608, green: 0.549, blue: 0.1333, alpha: 1.0)
         reticle.textColor = UIColor(red: 0.9608, green: 0.549, blue: 0.1333, alpha: 1.0)
-        drawButton.setImage(#imageLiteral(resourceName: "canOrange"), for: .normal)
+        drawButton.backgroundColor = UIColor(red: 0.9608, green: 0.549, blue: 0.1333, alpha: 1.0)
+        drawButton.layer.borderColor = UIColor(red: 0.9608, green: 0.549, blue: 0.1333, alpha: 1.0).cgColor
+
         self.hideColors()
     }
     
@@ -342,7 +358,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         colorName = "yellow"
         currentColor = UIColor(red: 1, green: 1, blue: 0, alpha: 1.0)
         reticle.textColor = UIColor(red: 1, green: 1, blue: 0, alpha: 1.0)
-        drawButton.setImage(#imageLiteral(resourceName: "canYellow"), for: .normal)
+        drawButton.backgroundColor = UIColor(red: 1, green: 1, blue: 0, alpha: 1.0)
+        drawButton.layer.borderColor = UIColor(red: 1, green: 1, blue: 0, alpha: 1.0).cgColor
+
         self.hideColors()
     }
     
@@ -350,7 +368,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         colorName = "green"
         currentColor = UIColor(red: 0, green: 0.6, blue: 0, alpha: 1.0)
         reticle.textColor = UIColor(red: 0, green: 0.6, blue: 0, alpha: 1.0)
-        drawButton.setImage(#imageLiteral(resourceName: "canGreen"), for: .normal)
+        drawButton.backgroundColor = UIColor(red: 0, green: 0.6, blue: 0, alpha: 1.0)
+        drawButton.layer.borderColor = UIColor(red: 0, green: 0.6, blue: 0, alpha: 1.0).cgColor
+        
         self.hideColors()
     }
     
@@ -358,7 +378,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         colorName = "darkGreen"
         currentColor = UIColor(red: 0, green: 0.2, blue: 0, alpha: 1.0)
         reticle.textColor = UIColor(red: 0, green: 0.2, blue: 0, alpha: 1.0)
-        drawButton.setImage(#imageLiteral(resourceName: "canDarkGreen"), for: .normal)
+        drawButton.backgroundColor = UIColor(red: 0, green: 0.2, blue: 0, alpha: 1.0)
+        drawButton.layer.borderColor = UIColor(red: 0, green: 0.2, blue: 0, alpha: 1.0).cgColor
+
         self.hideColors()
     }
     
@@ -366,7 +388,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         colorName = "white"
         currentColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1.0)
         reticle.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1.0)
-        drawButton.setImage(#imageLiteral(resourceName: "canWhite"), for: .normal)
+        drawButton.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1.0)
+        drawButton.layer.borderColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1.0).cgColor
+
         self.hideColors()
     }
 
