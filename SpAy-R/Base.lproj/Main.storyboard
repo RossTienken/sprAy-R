@@ -21,8 +21,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </arscnView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="O" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Opy-Da-Fxi">
+<<<<<<< HEAD
                                 <rect key="frame" x="172" y="309.5" width="31" height="48"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+=======
+                                <rect key="frame" x="176.5" y="315.5" width="23" height="36"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+>>>>>>> c9f8002953c062cbeb93fef9e360265c8bc0a69c
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                                 <size key="shadowOffset" width="-2" height="-1"/>
@@ -46,7 +51,11 @@
                                     <action selector="build:" destination="BV1-FR-VrT" eventType="touchUpInside" id="YQM-WJ-hUy"/>
                                 </connections>
                             </button>
+<<<<<<< HEAD
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.029999999999999999" minValue="0.001" maxValue="0.074999999999999997" translatesAutoresizingMaskIntoConstraints="NO" id="IUc-iL-Zh3">
+=======
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.029999999999999999" minValue="0.001" maxValue="0.070000000000000007" translatesAutoresizingMaskIntoConstraints="NO" id="IUc-iL-Zh3">
+>>>>>>> c9f8002953c062cbeb93fef9e360265c8bc0a69c
                                 <rect key="frame" x="14" y="618" width="350" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
@@ -92,7 +101,6 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="blackBtn:" destination="BV1-FR-VrT" eventType="touchUpInside" id="eD8-O3-oaY"/>
                                     <action selector="blueBtn:" destination="BV1-FR-VrT" eventType="touchUpInside" id="QzQ-AN-QOI"/>
                                 </connections>
                             </button>
@@ -119,7 +127,6 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="blackBtn:" destination="BV1-FR-VrT" eventType="touchUpInside" id="ABM-jr-Gw2"/>
                                     <action selector="redBtn:" destination="BV1-FR-VrT" eventType="touchUpInside" id="GVC-bv-etF"/>
                                 </connections>
                             </button>
@@ -138,7 +145,6 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="blackBtn:" destination="BV1-FR-VrT" eventType="touchUpInside" id="nkc-WI-5eu"/>
                                     <action selector="orangeBtn:" destination="BV1-FR-VrT" eventType="touchUpInside" id="kko-nU-ZFQ"/>
                                 </connections>
                             </button>
@@ -157,7 +163,6 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="blackBtn:" destination="BV1-FR-VrT" eventType="touchUpInside" id="Ac0-nI-rGU"/>
                                     <action selector="greenBtn:" destination="BV1-FR-VrT" eventType="touchUpInside" id="OxW-7X-4sL"/>
                                 </connections>
                             </button>
@@ -176,7 +181,6 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="blackBtn:" destination="BV1-FR-VrT" eventType="touchUpInside" id="IUK-qd-nMu"/>
                                     <action selector="whiteBtn:" destination="BV1-FR-VrT" eventType="touchUpInside" id="oK5-2m-C4b"/>
                                 </connections>
                             </button>

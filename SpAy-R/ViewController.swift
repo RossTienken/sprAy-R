@@ -97,8 +97,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 sphereNode.position = SCNVector3(x: cameraPosition.x, y: cameraPosition.y, z: cameraPosition.z)
                 
                 let newPOS = [cameraPosition.x, cameraPosition.y, cameraPosition.z, self.colorName, self.newRad] as [Any]
-                self.drawPOS.append(newPOS)
                 
+                self.drawPOS.append(newPOS)
                 self.canvasNode.addChildNode(sphereNode)
             }
         }
@@ -218,7 +218,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         case "white":
             return UIColor(red: 1, green: 1, blue: 1, alpha: 1.0)
         default:
-            return UIColor.white
+            return UIColor(red: 1, green: 1, blue: 1, alpha: 1.0)
             
         }
     }
