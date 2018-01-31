@@ -15,6 +15,8 @@
 		678561E9201FB5AD0064800D /* SpAy_RTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678561E8201FB5AD0064800D /* SpAy_RTests.swift */; };
 		678561F4201FB5AD0064800D /* SpAy_RUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678561F3201FB5AD0064800D /* SpAy_RUITests.swift */; };
 		67856204201FDB530064800D /* customButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67856203201FDB530064800D /* customButton.swift */; };
+		67A025DF20216E4A00EAF1DB /* StoryboardiPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67A025DE20216E4A00EAF1DB /* StoryboardiPad.storyboard */; };
+		67A025E12022341400EAF1DB /* LaunchScreen_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67A025E02022341400EAF1DB /* LaunchScreen_iPad.storyboard */; };
 		67CFA808202104320046FFBF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 678561DC201FB5AD0064800D /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +53,8 @@
 		678561F3201FB5AD0064800D /* SpAy_RUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpAy_RUITests.swift; sourceTree = "<group>"; };
 		678561F5201FB5AD0064800D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		67856203201FDB530064800D /* customButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customButton.swift; sourceTree = "<group>"; };
+		67A025DE20216E4A00EAF1DB /* StoryboardiPad.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StoryboardiPad.storyboard; sourceTree = "<group>"; };
+		67A025E02022341400EAF1DB /* LaunchScreen_iPad.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen_iPad.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +113,8 @@
 				678561DC201FB5AD0064800D /* LaunchScreen.storyboard */,
 				678561DF201FB5AD0064800D /* Info.plist */,
 				67856203201FDB530064800D /* customButton.swift */,
+				67A025DE20216E4A00EAF1DB /* StoryboardiPad.storyboard */,
+				67A025E02022341400EAF1DB /* LaunchScreen_iPad.storyboard */,
 			);
 			path = "SpAy-R";
 			sourceTree = "<group>";
@@ -236,9 +242,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				678561D4201FB5AD0064800D /* art.scnassets in Resources */,
+				67A025DF20216E4A00EAF1DB /* StoryboardiPad.storyboard in Resources */,
 				67CFA808202104320046FFBF /* LaunchScreen.storyboard in Resources */,
 				678561DB201FB5AD0064800D /* Assets.xcassets in Resources */,
 				678561D9201FB5AD0064800D /* Main.storyboard in Resources */,
+				67A025E12022341400EAF1DB /* LaunchScreen_iPad.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,11 +454,14 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.theBoys.SpAy-R.theBoys";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Debug;
 		};
@@ -467,11 +478,14 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.theBoys.SpAy-R.theBoys";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Release;
 		};
