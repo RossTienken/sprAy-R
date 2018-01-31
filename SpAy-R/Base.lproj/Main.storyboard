@@ -46,7 +46,7 @@
                                     <action selector="build:" destination="BV1-FR-VrT" eventType="touchUpInside" id="YQM-WJ-hUy"/>
                                 </connections>
                             </button>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.02" minValue="0.001" maxValue="0.050000000000000003" translatesAutoresizingMaskIntoConstraints="NO" id="IUc-iL-Zh3">
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.029999999999999999" minValue="0.001" maxValue="0.070000000000000007" translatesAutoresizingMaskIntoConstraints="NO" id="IUc-iL-Zh3">
                                 <rect key="frame" x="14" y="618" width="350" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
@@ -92,7 +92,6 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="blackBtn:" destination="BV1-FR-VrT" eventType="touchUpInside" id="eD8-O3-oaY"/>
                                     <action selector="blueBtn:" destination="BV1-FR-VrT" eventType="touchUpInside" id="QzQ-AN-QOI"/>
                                 </connections>
                             </button>
@@ -119,7 +118,6 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="blackBtn:" destination="BV1-FR-VrT" eventType="touchUpInside" id="ABM-jr-Gw2"/>
                                     <action selector="redBtn:" destination="BV1-FR-VrT" eventType="touchUpInside" id="GVC-bv-etF"/>
                                 </connections>
                             </button>
@@ -138,7 +136,6 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="blackBtn:" destination="BV1-FR-VrT" eventType="touchUpInside" id="nkc-WI-5eu"/>
                                     <action selector="orangeBtn:" destination="BV1-FR-VrT" eventType="touchUpInside" id="kko-nU-ZFQ"/>
                                 </connections>
                             </button>
@@ -157,7 +154,6 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="blackBtn:" destination="BV1-FR-VrT" eventType="touchUpInside" id="Ac0-nI-rGU"/>
                                     <action selector="greenBtn:" destination="BV1-FR-VrT" eventType="touchUpInside" id="OxW-7X-4sL"/>
                                 </connections>
                             </button>
@@ -176,7 +172,6 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="blackBtn:" destination="BV1-FR-VrT" eventType="touchUpInside" id="IUK-qd-nMu"/>
                                     <action selector="whiteBtn:" destination="BV1-FR-VrT" eventType="touchUpInside" id="oK5-2m-C4b"/>
                                 </connections>
                             </button>

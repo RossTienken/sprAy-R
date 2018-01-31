@@ -42,7 +42,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     var currentColor = UIColor.white
     var colorName = "white"
     var canvasNode = SCNNode()
-    var newRad = Float(0.02)
+    var newRad = Float(0.03)
     var drawPOS = [[]]
     
     @IBAction func newRadValue(_ sender: Any) {
