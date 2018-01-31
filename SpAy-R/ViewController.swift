@@ -41,8 +41,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     var showRefresh = false
     var showPicker = false
     var currentColor = UIColor.white
+    var colorName = "white"
     var canvasNode = SCNNode()
     var newRad = Float(0.02)
+    var drawPOS = [[]]
     
     @IBAction func newRadValue(_ sender: Any) {
         newRad = radSlider.value
@@ -95,6 +97,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 
                 let sphereNode = SCNNode(geometry: sphere)
                 sphereNode.position = SCNVector3(x: cameraPosition.x, y: cameraPosition.y, z: cameraPosition.z)
+                
+                let newPOS = [cameraPosition.x, cameraPosition.y, cameraPosition.z, self.colorName, self.newRad] as [Any]
+                self.drawPOS.append(newPOS)
                 
                 self.canvasNode.addChildNode(sphereNode)
                 
@@ -156,14 +161,86 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
     }
     
+    @IBAction func build(_ sender: Any) {
+        
+        let points = drawPOS
+        var i = 0
+        for point in points {
+            if(i != 0) {
+                let radius = CGFloat(point[4] as! Float)
+                let sphere = SCNSphere(radius: CGFloat(radius))
+                let material = SCNMaterial()
+                
+                
+                DispatchQueue.main.async {
+                    let color = self.getColor(point[3] as! String)
+                    
+                    material.diffuse.contents = color
+                    sphere.materials = [material]
+                    
+                    if self.showRefresh == false {
+                        self.showButton()
+                    }
+                    
+                    let sphereNode = SCNNode(geometry: sphere)
+                    sphereNode.position = SCNVector3(x: point[0] as! Float, y: point[1] as! Float, z: point[2] as! Float)
+                    
+                    self.canvasNode.addChildNode(sphereNode)
+                }
+            }else { i = 1}
+        }
+        
+    }
+    
+    func getColor(_ color:String) -> Any{
+        switch color {
+        case "black":
+            return UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
+        case "cyan":
+            return UIColor(red: 0.1333, green: 0.9176, blue: 0.9608, alpha: 1.0)
+        case "blue":
+            return UIColor(red: 0, green: 0, blue: 1, alpha: 1.0)
+        case "purple":
+            return UIColor(red: 0.8, green: 0, blue: 1, alpha: 1.0)
+        case "pink":
+            return UIColor(red: 1, green: 0.3686, blue: 0.949, alpha: 1.0)
+        case "red":
+            return UIColor(red: 1, green: 0, blue: 0, alpha: 1.0)
+        case "maroon":
+            return UIColor(red: 0.502, green: 0, blue: 0, alpha: 1.0)
+        case "orange":
+            return UIColor(red: 0.9608, green: 0.549, blue: 0.1333, alpha: 1.0)
+        case "yellow":
+            return UIColor(red: 1, green: 1, blue: 0, alpha: 1.0)
+        case "green":
+            return UIColor(red: 0, green: 0.6, blue: 0, alpha: 1.0)
+        case "darkGreen":
+            return UIColor(red: 0, green: 0.2, blue: 0, alpha: 1.0)
+        case "white":
+            return UIColor(red: 1, green: 1, blue: 1, alpha: 1.0)
+        default:
+            return UIColor.white
+            
+        }
+    }
+    
     func showColors() {
         //background color
         self.colorBack.isHidden = false
         
         //spray cans
         self.blackCan.isHidden = false
+        self.cyanCan.isHidden = false
         self.blueCan.isHidden = false
+        self.purpleCan.isHidden = false
+        self.pinkCan.isHidden = false
         self.redCan.isHidden = false
+        self.maroonCan.isHidden = false
+        self.orangeCan.isHidden = false
+        self.yellowCan.isHidden = false
+        self.greenCan.isHidden = false
+        self.darkGreenCan.isHidden = false
+        self.whiteCan.isHidden = false
     }
     
     func hideColors() {
@@ -172,8 +249,17 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         //spray cans
         blackCan.isHidden = true
+        cyanCan.isHidden = true
         blueCan.isHidden = true
+        purpleCan.isHidden = true
+        pinkCan.isHidden = true
         redCan.isHidden = true
+        maroonCan.isHidden = true
+        orangeCan.isHidden = true
+        yellowCan.isHidden = true
+        greenCan.isHidden = true
+        darkGreenCan.isHidden = true
+        whiteCan.isHidden = true
     }
     
 
@@ -187,30 +273,47 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     
     @IBAction func blackBtn(_ sender: Any) {
+        colorName = "black"
         currentColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
         reticle.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
+        drawButton.setImage(#imageLiteral(resourceName: "canBlack"), for: .normal)
+        self.hideColors()
     }
     
     @IBAction func cyanBtn(_ sender: Any) {
+        colorName = "cyan"
         currentColor = UIColor(red: 0.1333, green: 0.9176, blue: 0.9608, alpha: 1.0)
         reticle.textColor = UIColor(red: 0.1333, green: 0.9176, blue: 0.9608, alpha: 1.0)
+        drawButton.setImage(#imageLiteral(resourceName: "canCyan"), for: .normal)
+        self.hideColors()
     }
     
     @IBAction func blueBtn(_ sender: Any) {
+        colorName = "blue"
         currentColor = UIColor(red: 0, green: 0, blue: 1, alpha: 1.0)
         reticle.textColor = UIColor(red: 0, green: 0, blue: 1, alpha: 1.0)
+        drawButton.setImage(#imageLiteral(resourceName: "canBlue"), for: .normal)
+        self.hideColors()
     }
     
     @IBAction func purpleBtn(_ sender: Any) {
+        colorName = "purple"
         currentColor = UIColor(red: 0.8, green: 0, blue: 1, alpha: 1.0)
         reticle.textColor = UIColor(red: 0.8, green: 0, blue: 1, alpha: 1.0)
+        drawButton.setImage(#imageLiteral(resourceName: "canPurple"), for: .normal)
+        self.hideColors()
     }
+    
     @IBAction func pinkBtn(_ sender: Any) {
+        colorName = "pink"
         currentColor = UIColor(red: 1, green: 0.3686, blue: 0.949, alpha: 1.0)
         reticle.textColor = UIColor(red: 1, green: 0.3686, blue: 0.949, alpha: 1.0)
+        drawButton.setImage(#imageLiteral(resourceName: "canPink"), for: .normal)
+        self.hideColors()
     }
     
     @IBAction func redBtn(_ sender: Any) {
+        colorName = "red"
         currentColor = UIColor(red: 1, green: 0, blue: 0, alpha: 1.0)
         reticle.textColor = UIColor(red: 1, green: 0, blue: 0, alpha: 1.0)
         drawButton.setImage(#imageLiteral(resourceName: "canRed"), for: .normal)
@@ -218,33 +321,51 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
     
     @IBAction func maroonBtn(_ sender: Any) {
+        colorName = "maroon"
         currentColor = UIColor(red: 0.502, green: 0, blue: 0, alpha: 1.0)
         reticle.textColor = UIColor(red: 0.502, green: 0, blue: 0, alpha: 1.0)
+        drawButton.setImage(#imageLiteral(resourceName: "canMaroon"), for: .normal)
+        self.hideColors()
     }
     
     @IBAction func orangeBtn(_ sender: Any) {
+        colorName = "orange"
         currentColor = UIColor(red: 0.9608, green: 0.549, blue: 0.1333, alpha: 1.0)
         reticle.textColor = UIColor(red: 0.9608, green: 0.549, blue: 0.1333, alpha: 1.0)
+        drawButton.setImage(#imageLiteral(resourceName: "canOrange"), for: .normal)
+        self.hideColors()
     }
     
     @IBAction func yellowBtn(_ sender: Any) {
+        colorName = "yellow"
         currentColor = UIColor(red: 1, green: 1, blue: 0, alpha: 1.0)
         reticle.textColor = UIColor(red: 1, green: 1, blue: 0, alpha: 1.0)
+        drawButton.setImage(#imageLiteral(resourceName: "canYellow"), for: .normal)
+        self.hideColors()
     }
     
     @IBAction func greenBtn(_ sender: Any) {
+        colorName = "green"
         currentColor = UIColor(red: 0, green: 0.6, blue: 0, alpha: 1.0)
         reticle.textColor = UIColor(red: 0, green: 0.6, blue: 0, alpha: 1.0)
+        drawButton.setImage(#imageLiteral(resourceName: "canGreen"), for: .normal)
+        self.hideColors()
     }
     
     @IBAction func darkGreenBtn(_ sender: Any) {
+        colorName = "darkGreen"
         currentColor = UIColor(red: 0, green: 0.2, blue: 0, alpha: 1.0)
         reticle.textColor = UIColor(red: 0, green: 0.2, blue: 0, alpha: 1.0)
+        drawButton.setImage(#imageLiteral(resourceName: "canDarkGreen"), for: .normal)
+        self.hideColors()
     }
     
     @IBAction func whiteBtn(_ sender: Any) {
+        colorName = "white"
         currentColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1.0)
         reticle.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1.0)
+        drawButton.setImage(#imageLiteral(resourceName: "canWhite"), for: .normal)
+        self.hideColors()
     }
     
 }
