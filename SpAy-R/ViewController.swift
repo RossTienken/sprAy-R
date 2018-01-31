@@ -35,9 +35,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     @IBOutlet weak var greenCan: UIButton!
     @IBOutlet weak var darkGreenCan: UIButton!
     @IBOutlet weak var whiteCan: UIButton!
-    
-    
-    
+
     var showRefresh = false
     var showPicker = false
     var currentColor = UIColor.white
@@ -50,25 +48,24 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         newRad = radSlider.value
         reticle.font = reticle.font.withSize(CGFloat(newRad * 1000))
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Set the view's delegate
         sceneView.delegate = self
-        
+
         // Show statistics such as fps and timing information
         // sceneView.showsStatistics = true
-        
+
         // Create a new scene
         let scene = SCNScene()
-        
+
         // Set the scene to the view
         sceneView.scene = scene
-        sceneView.scene.rootNode.addChildNode(canvasNode)
-        
+        sceneView.scene.rootNode.addChildNode(canvasNode)        
     }
-    
+
     func renderer(_ renderer: SCNSceneRenderer, willRenderScene scene: SCNScene, atTime time: TimeInterval) {
         guard let cameraPoint = sceneView.pointOfView else{
             return
@@ -76,10 +73,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         let cameraTransform = cameraPoint.transform
         let cameraLocation = SCNVector3(x: cameraTransform.m41, y: cameraTransform.m42, z: cameraTransform.m43)
         let cameraOrientation = SCNVector3(x: -cameraTransform.m31, y: -cameraTransform.m32, z: -cameraTransform.m33)
-        
+
         let cameraPosition = SCNVector3Make(cameraLocation.x + cameraOrientation.x, cameraLocation.y + cameraOrientation.y, cameraLocation.z + cameraOrientation.z)
-        
-        
+
+
         let sphere = SCNSphere(radius: CGFloat(newRad))
         let material = SCNMaterial()
         DispatchQueue.main.async {
@@ -90,11 +87,11 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             if self.drawButton.isTouchInside {
                 material.diffuse.contents = self.currentColor
                 sphere.materials = [material]
-                
+
                 if self.showRefresh == false {
                     self.showButton()
                 }
-                
+
                 let sphereNode = SCNNode(geometry: sphere)
                 sphereNode.position = SCNVector3(x: cameraPosition.x, y: cameraPosition.y, z: cameraPosition.z)
                 
@@ -102,63 +99,114 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 self.drawPOS.append(newPOS)
                 
                 self.canvasNode.addChildNode(sphereNode)
-                
             }
         }
     }
-    
+
     func showButton() {
+
         showRefresh = true
         refreshBtn.isHidden = false
     }
-    
+
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+
         // Create a session configuration
         let configuration = ARWorldTrackingConfiguration()
-        
+
         // Run the view's session
         sceneView.session.run(configuration)
     }
-    
-    
+
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
+
         // Pause the view's session
         sceneView.session.pause()
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Release any cached data, images, etc that aren't in use.
     }
-    
+
     // MARK: - ARSCNViewDelegate
-    
+
     /*
      // Override to create and configure nodes for anchors added to the view's session.
      func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
      let node = SCNNode()
-     
+
      return node
      }
      */
-    
+
     func session(_ session: ARSession, didFailWithError error: Error) {
         // Present an error message to the user
-        
+
     }
-    
+
     func sessionWasInterrupted(_ session: ARSession) {
         // Inform the user that the session has been interrupted, for example, by presenting an overlay
-        
+
     }
-    
+
     func sessionInterruptionEnded(_ session: ARSession) {
         // Reset tracking and/or remove existing anchors if consistent tracking is required
-        
+
+    }
+    @IBAction func build(_ sender: Any) {
+
+        let points = drawPOS
+        var i = 0
+        for point in points {
+            if(i != 0) {
+                let radius = CGFloat(point[4] as! Float)
+                let sphere = SCNSphere(radius: CGFloat(radius))
+                let material = SCNMaterial()
+
+
+                DispatchQueue.main.async {
+                    let color = self.getColor(point[3] as! String)
+                    
+                    material.diffuse.contents = color
+                    sphere.materials = [material]
+
+                    if self.showRefresh == false {
+                        self.showButton()
+                    }
+                    let sphereNode = SCNNode(geometry: sphere)
+
+                    sphereNode.position = SCNVector3(x: point[0] as! Float, y: point[1] as! Float, z: point[2] as! Float)
+
+                    self.canvasNode.addChildNode(sphereNode)
+                }
+            }else { i = 1}
+        }
+
+    }
+
+    func getColor(_ color:String) -> Any{
+        switch color {
+            case "green":
+               return UIColor.green
+            case "red":
+                return UIColor.red
+            case "blue":
+                return UIColor.blue
+            case "orange":
+                return UIColor.orange
+            case "black":
+                return UIColor.black
+            case "white":
+                return UIColor.white
+        default:
+            return UIColor.white
+
+        }
     }
     
     @IBAction func build(_ sender: Any) {
@@ -263,7 +311,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
     
 
+
     @IBAction func refreshSrc(_ sender: Any) {
+
         self.canvasNode.enumerateChildNodes { (node, _) in
             node.removeFromParentNode()
         }
@@ -367,5 +417,5 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         drawButton.setImage(#imageLiteral(resourceName: "canWhite"), for: .normal)
         self.hideColors()
     }
-    
+
 }
