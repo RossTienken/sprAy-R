@@ -21,8 +21,8 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </arscnView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="O" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Opy-Da-Fxi">
-                                <rect key="frame" x="180" y="321.5" width="15" height="24"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <rect key="frame" x="172.5" y="309.5" width="30.5" height="48"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                                 <size key="shadowOffset" width="-2" height="-1"/>
@@ -46,7 +46,7 @@
                                     <action selector="build:" destination="BV1-FR-VrT" eventType="touchUpInside" id="YQM-WJ-hUy"/>
                                 </connections>
                             </button>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.02" minValue="0.001" maxValue="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="IUc-iL-Zh3">
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.02" minValue="0.001" maxValue="0.050000000000000003" translatesAutoresizingMaskIntoConstraints="NO" id="IUc-iL-Zh3">
                                 <rect key="frame" x="14" y="618" width="350" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
