@@ -42,12 +42,12 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     var currentColor = UIColor.white
     var colorName = "white"
     var canvasNode = SCNNode()
-    var newRad = Float(0.02)
+    var newRad = Float(0.03)
     var drawPOS = [[]]
     
     @IBAction func newRadValue(_ sender: Any) {
         newRad = radSlider.value
-        reticle.font = reticle.font.withSize(CGFloat(newRad * 2000))
+        reticle.font = reticle.font.withSize(CGFloat(newRad * 1500))
     }
 
     override func viewDidLoad() {
@@ -73,7 +73,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         }
         let cameraTransform = cameraPoint.transform
         let cameraLocation = SCNVector3(x: cameraTransform.m41, y: cameraTransform.m42, z: cameraTransform.m43)
-        let cameraOrientation = SCNVector3(x: -0.5 * cameraTransform.m31, y: -0.5 * cameraTransform.m32, z: -0.5 * cameraTransform.m33)
+        let cameraOrientation = SCNVector3(x: -0.75 * cameraTransform.m31, y: -0.75 * cameraTransform.m32, z: -0.75 * cameraTransform.m33)
 
         let cameraPosition = SCNVector3Make(cameraLocation.x + cameraOrientation.x, cameraLocation.y + cameraOrientation.y, cameraLocation.z + cameraOrientation.z)
 
