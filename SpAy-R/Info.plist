@@ -24,12 +24,14 @@
 	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>This application will use the camera for Augmented Reality.</string>
-	<key>NSMainStoryboardFile</key>
-	<string>Main</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
+	<key>UILaunchStoryboardName~ipad</key>
+	<string>LaunchScreen_iPad</string>
 	<key>UIMainStoryboardFile~ipad</key>
 	<string>StoryboardiPad</string>
+	<key>UIMainStoryboardFile~iphone</key>
+	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>arm64</string>

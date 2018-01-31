@@ -16,6 +16,7 @@
 		678561F4201FB5AD0064800D /* SpAy_RUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678561F3201FB5AD0064800D /* SpAy_RUITests.swift */; };
 		67856204201FDB530064800D /* customButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67856203201FDB530064800D /* customButton.swift */; };
 		67A025DF20216E4A00EAF1DB /* StoryboardiPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67A025DE20216E4A00EAF1DB /* StoryboardiPad.storyboard */; };
+		67A025E12022341400EAF1DB /* LaunchScreen_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67A025E02022341400EAF1DB /* LaunchScreen_iPad.storyboard */; };
 		67CFA808202104320046FFBF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 678561DC201FB5AD0064800D /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +54,7 @@
 		678561F5201FB5AD0064800D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		67856203201FDB530064800D /* customButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customButton.swift; sourceTree = "<group>"; };
 		67A025DE20216E4A00EAF1DB /* StoryboardiPad.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StoryboardiPad.storyboard; sourceTree = "<group>"; };
+		67A025E02022341400EAF1DB /* LaunchScreen_iPad.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen_iPad.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				678561DF201FB5AD0064800D /* Info.plist */,
 				67856203201FDB530064800D /* customButton.swift */,
 				67A025DE20216E4A00EAF1DB /* StoryboardiPad.storyboard */,
+				67A025E02022341400EAF1DB /* LaunchScreen_iPad.storyboard */,
 			);
 			path = "SpAy-R";
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 				67CFA808202104320046FFBF /* LaunchScreen.storyboard in Resources */,
 				678561DB201FB5AD0064800D /* Assets.xcassets in Resources */,
 				678561D9201FB5AD0064800D /* Main.storyboard in Resources */,
+				67A025E12022341400EAF1DB /* LaunchScreen_iPad.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
