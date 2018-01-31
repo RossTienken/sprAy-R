@@ -46,6 +46,10 @@ class ColorWheel: UIView {
         wheelLayer = CALayer()
         wheelLayer.frame = CGRect(x: 20, y: 20, width: self.frame.width-40, height: self.frame.height-40)
         wheelLayer.contents = createColorWheel(wheelLayer.frame.size)
+        wheelLayer.borderWidth = 2.0
+        wheelLayer.borderColor = UIColor.darkGray.cgColor
+        wheelLayer.cornerRadius = 0.5 * wheelLayer.frame.width
+        
         self.layer.addSublayer(wheelLayer)
         
         // Layer for the brightness

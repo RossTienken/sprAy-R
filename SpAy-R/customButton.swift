@@ -67,7 +67,7 @@ class customWheelButton: UIButton {
     }
     
     func setBackgroundColor() {
-        layer.borderWidth = 2.0
+        layer.borderWidth = 5.0
         layer.borderColor = color.cgColor
         layer.cornerRadius = 0.5 * bounds.size.width
         

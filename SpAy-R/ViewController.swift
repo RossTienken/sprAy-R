@@ -21,8 +21,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     // Color wheel
     @IBOutlet weak var wheelBackground: UIImageView!
+    @IBOutlet weak var wheelBackColor: UIImageView!
     @IBOutlet var colorPicker: SwiftHSVColorPicker!
     @IBOutlet weak var selectColor: customWheelButton!
+    @IBOutlet weak var selectLabel: UILabel!
     
     // default color choices
     @IBOutlet weak var showRainbow: UIButton!
@@ -42,6 +44,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     @IBOutlet weak var darkGreenCan: UIButton!
     @IBOutlet weak var whiteCan: UIButton!
     @IBOutlet weak var rainbowCan: UIButton!
+    @IBOutlet weak var rainbowLabel: UILabel!
     
     var showRefresh = false
     var showPicker = false
@@ -249,6 +252,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         self.darkGreenCan.isHidden = false
         self.whiteCan.isHidden = false
         self.rainbowCan.isHidden = false
+        self.rainbowLabel.isHidden = false
     }
     
     func hideColors() {
@@ -269,6 +273,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         darkGreenCan.isHidden = true
         whiteCan.isHidden = true
         rainbowCan.isHidden = true
+        rainbowLabel.isHidden = true
     }
     
 
@@ -406,8 +411,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     @IBAction func rainbowBtn(_ sender: Any) {
         wheelBackground.isHidden = false
+        wheelBackColor.isHidden = false
         colorPicker.isHidden = false
         selectColor.isHidden = false
+        selectLabel.isHidden = false
     }
     
     @IBAction func selectBtn(_ sender: Any) {
@@ -420,9 +427,12 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // hide color options
         self.hideColors()
         
+        
         wheelBackground.isHidden = true
+        wheelBackColor.isHidden = true
         colorPicker.isHidden = true
         selectColor.isHidden = true
+        selectLabel.isHidden = true
     }
     
 }

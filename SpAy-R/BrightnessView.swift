@@ -53,7 +53,7 @@ class BrightnessView: UIView {
         // Border
         colorLayer.cornerRadius = 10.0
         colorLayer.borderWidth = 2.0
-        colorLayer.borderColor = UIColor.lightGray.cgColor
+        colorLayer.borderColor = UIColor.darkGray.cgColor
         
         // Add the indicator
         indicator.strokeColor = indicatorColor

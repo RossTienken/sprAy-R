@@ -28,7 +28,7 @@ class SelectedColorView: UIView {
     func setBackgroundColor() {
         layer.cornerRadius = 10.0
         layer.borderWidth = 2.0
-        layer.borderColor = UIColor.lightGray.cgColor
+        layer.borderColor = UIColor.darkGray.cgColor
         
         backgroundColor = color
     }
