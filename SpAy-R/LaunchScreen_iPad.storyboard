@@ -17,12 +17,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="retro" translatesAutoresizingMaskIntoConstraints="NO" id="OvH-w2-xg7">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="retroiPad" translatesAutoresizingMaskIntoConstraints="NO" id="OvH-w2-xg7">
                                 <rect key="frame" x="0.0" y="-33" width="1366" height="1057"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sprayRT" translatesAutoresizingMaskIntoConstraints="NO" id="NQl-S7-d43">
-                                <rect key="frame" x="367" y="-32" width="632" height="1088"/>
+                                <rect key="frame" x="367" y="-25" width="632" height="1075"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -36,7 +36,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="retro" width="1080" height="1920"/>
+        <image name="retroiPad" width="2560" height="1600"/>
         <image name="sprayRT" width="375" height="675"/>
     </resources>
 </document>
