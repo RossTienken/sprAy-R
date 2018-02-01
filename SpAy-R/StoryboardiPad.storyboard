@@ -53,10 +53,10 @@
                                     <action selector="newRadValue:" destination="BV1-FR-VrT" eventType="valueChanged" id="xiN-Fi-hUu"/>
                                 </connections>
                             </slider>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1B8-5F-lNJ">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1B8-5F-lNJ" customClass="customDraw" customModule="SpAy_R" customModuleProvider="target">
                                 <rect key="frame" x="1113" y="854" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="canWhite"/>
+                                <state key="normal" image="canTransparent"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Svm-T6-5Pm">
                                 <rect key="frame" x="87" y="854" width="150" height="150"/>
@@ -68,7 +68,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MCz-2r-U57">
-                                <rect key="frame" x="210" y="141" width="150" height="150"/>
+                                <rect key="frame" x="198" y="130" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="canBlack">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -78,7 +78,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LtO-GK-e5D">
-                                <rect key="frame" x="465" y="141" width="150" height="150"/>
+                                <rect key="frame" x="471" y="130" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="canCyan"/>
                                 <connections>
@@ -86,7 +86,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ypn-cZ-MXw">
-                                <rect key="frame" x="720" y="141" width="150" height="150"/>
+                                <rect key="frame" x="744" y="130" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="canBlue">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -96,7 +96,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R6k-kr-YeQ">
-                                <rect key="frame" x="978" y="141" width="150" height="150"/>
+                                <rect key="frame" x="1017" y="130" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="canPurple"/>
                                 <connections>
@@ -104,7 +104,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WWi-tu-5vh">
-                                <rect key="frame" x="978" y="369" width="150" height="150"/>
+                                <rect key="frame" x="1017" y="335" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="canPink"/>
                                 <connections>
@@ -112,7 +112,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CD6-Bk-DQA">
-                                <rect key="frame" x="720" y="369" width="150" height="150"/>
+                                <rect key="frame" x="744" y="335" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="canRed">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -122,7 +122,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AWq-v3-eZy">
-                                <rect key="frame" x="465" y="369" width="150" height="150"/>
+                                <rect key="frame" x="471" y="335" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="canMaroon"/>
                                 <connections>
@@ -130,7 +130,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xd0-eC-Xnm">
-                                <rect key="frame" x="210" y="386" width="150" height="150"/>
+                                <rect key="frame" x="198" y="335" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="canOrange">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -140,7 +140,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nDo-ZA-RDy">
-                                <rect key="frame" x="210" y="603" width="150" height="150"/>
+                                <rect key="frame" x="198" y="540" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="canYellow"/>
                                 <connections>
@@ -148,7 +148,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vuH-Yw-oWW">
-                                <rect key="frame" x="465" y="603" width="150" height="150"/>
+                                <rect key="frame" x="471" y="540" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="canGreen">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -158,7 +158,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1DS-NU-czS">
-                                <rect key="frame" x="720" y="603" width="150" height="150"/>
+                                <rect key="frame" x="744" y="540" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="canDarkGreen"/>
                                 <connections>
@@ -166,7 +166,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2PL-Kk-lV2">
-                                <rect key="frame" x="978" y="603" width="150" height="150"/>
+                                <rect key="frame" x="1017" y="540" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="canWhite">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -175,6 +175,52 @@
                                     <action selector="whiteBtn:" destination="BV1-FR-VrT" eventType="touchUpInside" id="oK5-2m-C4b"/>
                                 </connections>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="dbN-8Z-Vr5">
+                                <rect key="frame" x="608" y="745" width="150" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" backgroundImage="swirlcan.svg.med"/>
+                                <connections>
+                                    <action selector="rainbowBtn:" destination="BV1-FR-VrT" eventType="touchUpInside" id="Jdk-uV-XRb"/>
+                                </connections>
+                            </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Custom Colors" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jTX-2P-T2G">
+                                <rect key="frame" x="543" y="892" width="300" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="splatter" translatesAutoresizingMaskIntoConstraints="NO" id="wDO-4b-89M">
+                                <rect key="frame" x="0.0" y="2" width="1366" height="1024"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView hidden="YES" userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QtU-yt-uOv">
+                                <rect key="frame" x="0.0" y="2" width="1366" height="1024"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
+                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gbl-5U-mUF" customClass="SwiftHSVColorPicker" customModule="SpAy_R" customModuleProvider="target">
+                                <rect key="frame" x="376" y="72" width="614.5" height="600"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </view>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="faU-Us-zmr" customClass="customWheelButton" customModule="SpAy_R" customModuleProvider="target">
+                                <rect key="frame" x="601" y="789.5" width="164" height="164"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="canTransparent">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectBtn:" destination="BV1-FR-VrT" eventType="touchUpInside" id="X8U-MK-MSH"/>
+                                </connections>
+                            </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bs9-uJ-DDI">
+                                <rect key="frame" x="601" y="949" width="164" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -191,6 +237,7 @@
                         <outlet property="blackCan" destination="MCz-2r-U57" id="5rB-rd-w9j"/>
                         <outlet property="blueCan" destination="ypn-cZ-MXw" id="lEC-XL-6mV"/>
                         <outlet property="colorBack" destination="R5C-SD-m4W" id="jmV-kB-JXZ"/>
+                        <outlet property="colorPicker" destination="gbl-5U-mUF" id="zlP-8I-QeJ"/>
                         <outlet property="cyanCan" destination="LtO-GK-e5D" id="jQ9-Og-XTx"/>
                         <outlet property="darkGreenCan" destination="1DS-NU-czS" id="mBi-fv-HLB"/>
                         <outlet property="drawButton" destination="1B8-5F-lNJ" id="3ae-SY-AV0"/>
@@ -200,12 +247,18 @@
                         <outlet property="pinkCan" destination="WWi-tu-5vh" id="eem-rk-9A2"/>
                         <outlet property="purpleCan" destination="R6k-kr-YeQ" id="Eb4-tk-cMX"/>
                         <outlet property="radSlider" destination="IUc-iL-Zh3" id="YHU-8a-agV"/>
+                        <outlet property="rainbowCan" destination="dbN-8Z-Vr5" id="rI4-F5-ZIQ"/>
+                        <outlet property="rainbowLabel" destination="jTX-2P-T2G" id="6YX-KY-wkN"/>
                         <outlet property="redCan" destination="CD6-Bk-DQA" id="iD5-il-GUN"/>
                         <outlet property="refreshBtn" destination="eq9-cF-Zxq" id="CCf-rm-qmX"/>
                         <outlet property="reticle" destination="Opy-Da-Fxi" id="pi9-7W-WQ0"/>
                         <outlet property="saveBtn" destination="GjW-UF-ljg" id="GbO-3l-oqA"/>
                         <outlet property="sceneView" destination="QjL-BN-83G" id="j8n-2m-C7M"/>
+                        <outlet property="selectColor" destination="faU-Us-zmr" id="kIa-pq-Q1X"/>
+                        <outlet property="selectLabel" destination="Bs9-uJ-DDI" id="tkW-DF-Arz"/>
                         <outlet property="showRainbow" destination="Svm-T6-5Pm" id="hFf-W5-qHZ"/>
+                        <outlet property="wheelBackColor" destination="QtU-yt-uOv" id="5f3-TO-BaN"/>
+                        <outlet property="wheelBackground" destination="wDO-4b-89M" id="0KR-Ar-93l"/>
                         <outlet property="whiteCan" destination="2PL-Kk-lV2" id="GWH-SC-kWP"/>
                         <outlet property="yellowCan" destination="nDo-ZA-RDy" id="7uP-DP-qeG"/>
                     </connections>
@@ -226,6 +279,7 @@
         <image name="canPink" width="300" height="299"/>
         <image name="canPurple" width="300" height="299"/>
         <image name="canRed" width="300" height="299"/>
+        <image name="canTransparent" width="300" height="300"/>
         <image name="canWhite" width="300" height="299"/>
         <image name="canYellow" width="300" height="299"/>
         <image name="refresh" width="400" height="400"/>
