@@ -278,7 +278,6 @@
                                         </state>
                                         <connections>
                                             <action selector="saveBtn:" destination="BV1-FR-VrT" eventType="touchUpInside" id="cTm-2t-Xnn"/>
-                                            <action selector="saveClose:" destination="BV1-FR-VrT" eventType="touchUpInside" id="UKZ-Np-Nre"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FZL-br-wJF" customClass="saveSubmit" customModule="SpAy_R" customModuleProvider="target">
@@ -289,6 +288,9 @@
                                         <state key="normal" title="CLOSE">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="saveClose:" destination="BV1-FR-VrT" eventType="touchUpInside" id="KIv-ss-Jks"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
