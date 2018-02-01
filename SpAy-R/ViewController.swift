@@ -58,6 +58,11 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         newRad = radSlider.value
         reticle.font = reticle.font.withSize(CGFloat(newRad * 1500))
     }
+    
+    // light status bar
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -235,10 +240,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
     
     func showColors() {
-        //background color
+        // Background color
         self.colorBack.isHidden = false
         
-        //spray cans
+        // Spray cans
         self.blackCan.isHidden = false
         self.cyanCan.isHidden = false
         self.blueCan.isHidden = false
@@ -259,7 +264,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // background color
         colorBack.isHidden = true
         
-        //spray cans
+        // Spray cans
         blackCan.isHidden = true
         cyanCan.isHidden = true
         blueCan.isHidden = true
