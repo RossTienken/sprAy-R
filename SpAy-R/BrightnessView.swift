@@ -32,7 +32,6 @@ class BrightnessView: UIView {
         backgroundColor = UIColor.clear
         
         // Create a gradient layer that goes from black to white
-        // Create a gradient layer that goes from black to white
         var hue: CGFloat = 0.0, saturation: CGFloat = 0.0, brightness: CGFloat = 0.0, alpha: CGFloat = 0.0
         let ok: Bool = color.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
         if (!ok) {
@@ -51,7 +50,7 @@ class BrightnessView: UIView {
         self.layer.insertSublayer(colorLayer, below: layer)
         
         // Border
-        colorLayer.cornerRadius = 10.0
+        colorLayer.cornerRadius = 5.0
         colorLayer.borderWidth = 2.0
         colorLayer.borderColor = UIColor.darkGray.cgColor
         
@@ -59,6 +58,7 @@ class BrightnessView: UIView {
         indicator.strokeColor = indicatorColor
         indicator.fillColor = indicatorColor
         indicator.lineWidth = indicatorBorderWidth
+        
         self.layer.addSublayer(indicator)
         
         drawIndicator()
@@ -105,6 +105,8 @@ class BrightnessView: UIView {
         // Draw the indicator
         if (point != nil) {
             indicator.path = UIBezierPath(roundedRect: CGRect(x: point.x-3, y: 0, width: 6, height: 28), cornerRadius: 3).cgPath
+            indicator.lineWidth = 2.0
+            indicator.strokeColor = UIColor.black.cgColor
         }
     }
     

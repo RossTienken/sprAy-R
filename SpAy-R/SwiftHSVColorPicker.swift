@@ -62,8 +62,12 @@ open class SwiftHSVColorPicker: UIView, ColorWheelDelegate, BrightnessViewDelega
         // Add selectedColorView as a subview of this view
         self.addSubview(selectedColorView)
         
+        let sprayWidth = self.bounds.width/3.75
+        let sprayY = self.bounds.height + self.bounds.height/5.1
+        let sprayX = self.bounds.width/2 - sprayWidth/2
+        
         // Spray button
-        sprayBtn = customWheelButton(frame: CGRect(x: 114.5, y:464, width: self.bounds.width/3.75, height: self.bounds.width/3.75), color: self.color)
+        sprayBtn = customWheelButton(frame: CGRect(x: sprayX, y: sprayY, width: sprayWidth, height: sprayWidth), color: self.color)
         // Add selectedColorView as a subview of this view
         self.addSubview(sprayBtn)
         
