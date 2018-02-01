@@ -9,16 +9,35 @@
 import UIKit
 import SceneKit
 import ARKit
+import Foundation
 
 class ViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet weak var drawButton: customDraw!
-    @IBOutlet weak var refreshBtn: customButton!
-    @IBOutlet weak var saveBtn: customButton!
     @IBOutlet weak var reticle: UILabel!
     @IBOutlet weak var radSlider: UISlider!
     
+    // Save/Load forms
+    @IBOutlet weak var saveForm: UIView!
+    @IBOutlet weak var saveText: UITextField!
+    
+    @IBOutlet weak var loadForm: UIView!
+    @IBOutlet weak var loadText: UITextField!
+    
+    
+    // Pullout bar
+    @IBOutlet weak var clearSaveLoad: clearSaveLoad!
+
+    @IBOutlet weak var saveOpen: topButton!
+    @IBOutlet weak var saveIcon: UIImageView!
+    
+    @IBOutlet weak var loadOpen: middleButton!
+    @IBOutlet weak var loadIcon: UIImageView!
+    
+    @IBOutlet weak var clearBtn: bottomButton!
+    @IBOutlet weak var clearIcon: UIImageView!
+
     // Color wheel
     @IBOutlet weak var wheelBackground: UIImageView!
     @IBOutlet weak var wheelBackColor: UIImageView!
@@ -47,9 +66,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     @IBOutlet weak var rainbowLabel: UILabel!
     
     var showRefresh = false
-    var showPicker = false
     var currentColor = UIColor.white
-    var colorName = "white"
+    var colorName = [CGFloat(1.0),CGFloat(1.0),CGFloat(1.0), CGFloat(1.0)]
     var canvasNode = SCNNode()
     var newRad = Float(0.03)
     var drawPOS = [[]]
@@ -98,16 +116,11 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         let material = SCNMaterial()
         DispatchQueue.main.async {
             if self.showRainbow.isTouchInside {
-                self.showPicker = true
                 self.showColors()
             }
             if self.drawButton.isTouchInside {
                 material.diffuse.contents = self.currentColor
                 sphere.materials = [material]
-
-                if self.showRefresh == false {
-                    self.showButton()
-                }
 
                 let sphereNode = SCNNode(geometry: sphere)
                 sphereNode.position = SCNVector3(x: cameraPosition.x, y: cameraPosition.y, z: cameraPosition.z)
@@ -118,12 +131,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 self.canvasNode.addChildNode(sphereNode)
             }
         }
-    }
-
-    func showButton() {
-
-        showRefresh = true
-        refreshBtn.isHidden = false
     }
 
 
@@ -176,70 +183,149 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
     }
     
-    @IBAction func build(_ sender: Any) {
+    func build() {
         
         let points = drawPOS
         var i = 0
         for point in points {
-            if(i != 0) {
-                let radius = CGFloat(point[4] as! Float)
+            if(i > 1) {
+//                let radPoint = (point[4] as! [String])
+                
+                let radius = point[4] as! CGFloat
                 let sphere = SCNSphere(radius: CGFloat(radius))
                 let material = SCNMaterial()
                 
                 
                 DispatchQueue.main.async {
-                    let color = self.getColor(point[3] as! String)
+                    let color = self.getColor(point[3] as! Array<CGFloat>)
                     
                     material.diffuse.contents = color
                     sphere.materials = [material]
                     
-                    if self.showRefresh == false {
-                        self.showButton()
-                    }
                     
                     let sphereNode = SCNNode(geometry: sphere)
-                    sphereNode.position = SCNVector3(x: point[0] as! Float, y: point[1] as! Float, z: point[2] as! Float)
+                    sphereNode.position = SCNVector3(x: Float(point[0] as! CGFloat), y: Float(point[1] as! CGFloat), z: Float(point[2] as! CGFloat))
                     
                     self.canvasNode.addChildNode(sphereNode)
                 }
-            }else { i = 1}
+            }else { i = i+1}
         }
         
     }
     
-    func getColor(_ color:String) -> Any{
-        switch color {
-        case "black":
-            return UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
-        case "cyan":
-            return UIColor(red: 0.1333, green: 0.9176, blue: 0.9608, alpha: 1.0)
-        case "blue":
-            return UIColor(red: 0, green: 0, blue: 1, alpha: 1.0)
-        case "purple":
-            return UIColor(red: 0.8, green: 0, blue: 1, alpha: 1.0)
-        case "pink":
-            return UIColor(red: 1, green: 0.3686, blue: 0.949, alpha: 1.0)
-        case "red":
-            return UIColor(red: 1, green: 0, blue: 0, alpha: 1.0)
-        case "maroon":
-            return UIColor(red: 0.502, green: 0, blue: 0, alpha: 1.0)
-        case "orange":
-            return UIColor(red: 0.9608, green: 0.549, blue: 0.1333, alpha: 1.0)
-        case "yellow":
-            return UIColor(red: 1, green: 1, blue: 0, alpha: 1.0)
-        case "green":
-            return UIColor(red: 0, green: 0.6, blue: 0, alpha: 1.0)
-        case "darkGreen":
-            return UIColor(red: 0, green: 0.2, blue: 0, alpha: 1.0)
-        case "white":
-            return UIColor(red: 1, green: 1, blue: 1, alpha: 1.0)
-        default:
-            return UIColor(red: 1, green: 1, blue: 1, alpha: 1.0)
-            
-        }
+    func getColor(_ color:Array<CGFloat>) -> CGColor{
+        return UIColor(red: color[0], green: color[1], blue: color[2], alpha: color[3]).cgColor
     }
     
+    @IBAction func saveBtn(_ sender: Any) {
+        self.view.endEditing(true)
+        saveForm.isHidden = true
+        
+        let parameters = ["data": drawPOS, "name": saveText.text!.lowercased() as Any]
+        
+        guard let url = URL(string: "http://10.9.21.139:5000/api/model") else { return }
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else { return }
+        request.httpBody = httpBody
+        
+        let session = URLSession.shared
+        session.dataTask(with: request) { (data, response, error) in
+            if let response = response {
+                print(response)
+            }
+            
+            if let data = data {
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data, options: [])
+                    print(json)
+                } catch {
+                    print(error)
+                }
+            }
+            
+            }.resume()
+    }
+    
+    
+    @IBAction func loadBtn(_ sender: Any) {
+        self.view.endEditing(true)
+        loadForm.isHidden = true
+        
+        self.canvasNode.enumerateChildNodes { (node, _) in
+            node.removeFromParentNode()
+        }
+        
+        let loadInput = loadText.text!.lowercased()
+        let modelName = loadInput.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
+        
+        guard let url = URL(string: "http://10.9.21.139:5000/api/model/"+modelName!) else { return }
+        
+        let session = URLSession.shared
+        session.dataTask(with: url) { (data, response, error) in
+            
+            if let data = data {
+                
+                do {
+                    guard let json = (try? JSONSerialization.jsonObject(with: data, options: [])) as? [String: Any] else {return}
+                    self.drawPOS = [[]]
+                    
+                    self.drawPOS = json["data"] as! [[Any]]
+                    
+                    self.build()
+                    
+                }
+            }
+            }.resume()
+    }
+    
+    @IBOutlet weak var tapClose: UIButton!
+    @IBAction func tapAction(_ sender: Any) {
+        hideOptions()
+    }
+    
+    
+    @IBAction func saveClose(_ sender: Any) {
+        saveForm.isHidden = true
+    }
+    
+    @IBAction func loadClose(_ sender: Any) {
+        loadForm.isHidden = true
+    }
+    // Options bar actions
+    @IBAction func showBar(_ sender: Any) {
+        showOptions()
+    }
+    
+    @IBAction func saveAction(_ sender: Any) {
+        saveForm.isHidden = false
+        hideOptions()
+    }
+    
+    @IBAction func loadAction(_ sender: Any) {
+        loadForm.isHidden = false
+        hideOptions()
+    }
+    
+    @IBAction func clearAction(_ sender: Any) {
+        drawPOS = [[]]
+        self.canvasNode.enumerateChildNodes { (node, _) in
+            node.removeFromParentNode()
+        }
+        hideOptions()
+    }
+    
+    func checkAction(sender : UITapGestureRecognizer) {
+        // Do what you want
+    }
+    
+    // Show/Hide cans & colors
+    
     func showColors() {
+        // Hide options
+        hideOptions()
+        
         // Background color
         self.colorBack.isHidden = false
         
@@ -281,111 +367,128 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         rainbowLabel.isHidden = true
     }
     
-
-
-    @IBAction func refreshSrc(_ sender: Any) {
-
-        self.canvasNode.enumerateChildNodes { (node, _) in
-            node.removeFromParentNode()
-        }
-        refreshBtn.isHidden = true
-        showRefresh = false
-        saveBtn.isHidden = false
+    func showOptions() {
+        tapClose.isHidden = false
+        UIView.animate(withDuration: 0.5, animations: {
+            self.saveOpen.frame.origin.x = CGFloat(-10)
+            self.saveIcon.frame.origin.x = CGFloat(5)
+            
+            self.loadOpen.frame.origin.x = CGFloat(-10)
+            self.loadIcon.frame.origin.x = CGFloat(10)
+            
+            self.clearBtn.frame.origin.x = CGFloat(-10)
+            self.clearIcon.frame.origin.x = CGFloat(5)
+        })
     }
     
+    func hideOptions() {
+        tapClose.isHidden = true
+        UIView.animate(withDuration: 1.0, animations: {
+            self.saveOpen.frame.origin.x = CGFloat(-200)
+            self.saveIcon.frame.origin.x = CGFloat(-100)
+            
+            self.loadOpen.frame.origin.x = CGFloat(-200)
+            self.loadIcon.frame.origin.x = CGFloat(-100)
+            
+            self.clearBtn.frame.origin.x = CGFloat(-200)
+            self.clearIcon.frame.origin.x = CGFloat(-100)
+        })
+    }
+    
+    // Can actions
     
     @IBAction func blackBtn(_ sender: Any) {
-        colorName = "black"
+        colorName = [0,0,0,CGFloat(1)]
         currentColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
         reticle.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
         drawButton.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
         drawButton.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0).cgColor
-
+        
         self.hideColors()
     }
     
     @IBAction func cyanBtn(_ sender: Any) {
-        colorName = "cyan"
+        colorName = [0.1333, 0.9176, 0.9608, CGFloat(1)]
         currentColor = UIColor(red: 0.1333, green: 0.9176, blue: 0.9608, alpha: 1.0)
         reticle.textColor = UIColor(red: 0.1333, green: 0.9176, blue: 0.9608, alpha: 1.0)
         drawButton.backgroundColor = UIColor(red: 0.1333, green: 0.9176, blue: 0.9608, alpha: 1.0)
         drawButton.layer.borderColor = UIColor(red: 0.1333, green: 0.9176, blue: 0.9608, alpha: 1.0).cgColor
-
+        
         self.hideColors()
     }
     
     @IBAction func blueBtn(_ sender: Any) {
-        colorName = "blue"
+        colorName = [0,0,1,CGFloat(1)]
         currentColor = UIColor(red: 0, green: 0, blue: 1, alpha: 1.0)
         reticle.textColor = UIColor(red: 0, green: 0, blue: 1, alpha: 1.0)
         drawButton.backgroundColor = UIColor(red: 0, green: 0, blue: 1, alpha: 1.0)
         drawButton.layer.borderColor = UIColor(red: 0, green: 0, blue: 1, alpha: 1.0).cgColor
-
+        
         self.hideColors()
     }
     
     @IBAction func purpleBtn(_ sender: Any) {
-        colorName = "purple"
+        colorName = [0.8,0,1,CGFloat(1)]
         currentColor = UIColor(red: 0.8, green: 0, blue: 1, alpha: 1.0)
         reticle.textColor = UIColor(red: 0.8, green: 0, blue: 1, alpha: 1.0)
         drawButton.backgroundColor = UIColor(red: 0.8, green: 0, blue: 1, alpha: 1.0)
         drawButton.layer.borderColor = UIColor(red: 0.8, green: 0, blue: 1, alpha: 1.0).cgColor
-
+        
         self.hideColors()
     }
     
     @IBAction func pinkBtn(_ sender: Any) {
-        colorName = "pink"
+        colorName = [1,0.3686,0.949,CGFloat(1)]
         currentColor = UIColor(red: 1, green: 0.3686, blue: 0.949, alpha: 1.0)
         reticle.textColor = UIColor(red: 1, green: 0.3686, blue: 0.949, alpha: 1.0)
         drawButton.backgroundColor = UIColor(red: 1, green: 0.3686, blue: 0.949, alpha: 1.0)
         drawButton.layer.borderColor = UIColor(red: 1, green: 0.3686, blue: 0.949, alpha: 1.0).cgColor
-
+        
         self.hideColors()
     }
     
     @IBAction func redBtn(_ sender: Any) {
-        colorName = "red"
+        colorName = [1,0,0,CGFloat(1)]
         currentColor = UIColor(red: 1, green: 0, blue: 0, alpha: 1.0)
         reticle.textColor = UIColor(red: 1, green: 0, blue: 0, alpha: 1.0)
         drawButton.backgroundColor = UIColor(red: 1, green: 0, blue: 0, alpha: 1.0)
         drawButton.layer.borderColor = UIColor(red: 1, green: 0, blue: 0, alpha: 1.0).cgColor
-
+        
         self.hideColors()
     }
     
     @IBAction func maroonBtn(_ sender: Any) {
-        colorName = "maroon"
+        colorName = [0.502,0,0,CGFloat(1)]
         currentColor = UIColor(red: 0.502, green: 0, blue: 0, alpha: 1.0)
         reticle.textColor = UIColor(red: 0.502, green: 0, blue: 0, alpha: 1.0)
         drawButton.backgroundColor = UIColor(red: 0.502, green: 0, blue: 0, alpha: 1.0)
         drawButton.layer.borderColor = UIColor(red: 0.502, green: 0, blue: 0, alpha: 1.0).cgColor
-
+        
         self.hideColors()
     }
     
     @IBAction func orangeBtn(_ sender: Any) {
-        colorName = "orange"
+        colorName = [0.9608,0.549,0.1333,CGFloat(1)]
         currentColor = UIColor(red: 0.9608, green: 0.549, blue: 0.1333, alpha: 1.0)
         reticle.textColor = UIColor(red: 0.9608, green: 0.549, blue: 0.1333, alpha: 1.0)
         drawButton.backgroundColor = UIColor(red: 0.9608, green: 0.549, blue: 0.1333, alpha: 1.0)
         drawButton.layer.borderColor = UIColor(red: 0.9608, green: 0.549, blue: 0.1333, alpha: 1.0).cgColor
-
+        
         self.hideColors()
     }
     
     @IBAction func yellowBtn(_ sender: Any) {
-        colorName = "yellow"
+        colorName = [1,1,0,CGFloat(1)]
         currentColor = UIColor(red: 1, green: 1, blue: 0, alpha: 1.0)
         reticle.textColor = UIColor(red: 1, green: 1, blue: 0, alpha: 1.0)
         drawButton.backgroundColor = UIColor(red: 1, green: 1, blue: 0, alpha: 1.0)
         drawButton.layer.borderColor = UIColor(red: 1, green: 1, blue: 0, alpha: 1.0).cgColor
-
+        
         self.hideColors()
     }
     
     @IBAction func greenBtn(_ sender: Any) {
-        colorName = "green"
+        colorName = [0,0.6,0,CGFloat(1)]
         currentColor = UIColor(red: 0, green: 0.6, blue: 0, alpha: 1.0)
         reticle.textColor = UIColor(red: 0, green: 0.6, blue: 0, alpha: 1.0)
         drawButton.backgroundColor = UIColor(red: 0, green: 0.6, blue: 0, alpha: 1.0)
@@ -395,22 +498,22 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
     
     @IBAction func darkGreenBtn(_ sender: Any) {
-        colorName = "darkGreen"
+        colorName = [0,0.2,0,CGFloat(1)]
         currentColor = UIColor(red: 0, green: 0.2, blue: 0, alpha: 1.0)
         reticle.textColor = UIColor(red: 0, green: 0.2, blue: 0, alpha: 1.0)
         drawButton.backgroundColor = UIColor(red: 0, green: 0.2, blue: 0, alpha: 1.0)
         drawButton.layer.borderColor = UIColor(red: 0, green: 0.2, blue: 0, alpha: 1.0).cgColor
-
+        
         self.hideColors()
     }
     
     @IBAction func whiteBtn(_ sender: Any) {
-        colorName = "white"
+        colorName = [1,1,1,CGFloat(1)]
         currentColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1.0)
         reticle.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1.0)
         drawButton.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1.0)
         drawButton.layer.borderColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1.0).cgColor
-
+        
         self.hideColors()
     }
     
@@ -423,7 +526,11 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
     
     @IBAction func selectBtn(_ sender: Any) {
-        // color changes
+        let colour = colorPicker.color
+        let rgbColour = colour?.cgColor
+        let rgbColours = rgbColour?.components
+        colorName = rgbColours!
+        
         currentColor = colorPicker.color
         reticle.textColor = colorPicker.color
         drawButton.backgroundColor = colorPicker.color
