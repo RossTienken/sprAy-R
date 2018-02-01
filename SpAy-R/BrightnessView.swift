@@ -104,7 +104,7 @@ class BrightnessView: UIView {
     func drawIndicator() {
         // Draw the indicator
         if (point != nil) {
-            indicator.path = UIBezierPath(roundedRect: CGRect(x: point.x-3, y: 0, width: 6, height: 28), cornerRadius: 3).cgPath
+            indicator.path = UIBezierPath(roundedRect: CGRect(x: point.x-3, y: 0, width: 9, height: 28), cornerRadius: 3).cgPath
             indicator.lineWidth = 2.0
             indicator.strokeColor = UIColor.black.cgColor
         }
