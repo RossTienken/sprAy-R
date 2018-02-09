@@ -84,7 +84,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
         // Set the view's delegate
         sceneView.delegate = self
 
@@ -97,6 +97,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Set the scene to the view
         sceneView.scene = scene
         sceneView.scene.rootNode.addChildNode(canvasNode)
+        sceneView.autoenablesDefaultLighting = true
         
         // Color picker
         colorPicker.setViewColor(UIColor.red)
@@ -139,7 +140,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
         // Create a session configuration
         let configuration = ARWorldTrackingConfiguration()
-
+        
+        configuration.planeDetection = .horizontal
         // Run the view's session
         sceneView.session.run(configuration)
     }
@@ -150,6 +152,34 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
         // Pause the view's session
         sceneView.session.pause()
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let touch = touches.first {
+            let touchLocation = touch.location(in: sceneView)
+            
+            let results = sceneView.hitTest(touchLocation, types: .existingPlaneUsingExtent)
+            
+            if let hitResult = results.first{
+                guard let cameraPoint = sceneView.pointOfView else{
+                    return
+                }
+                let cameraTransform = cameraPoint.transform
+                let cameraLocation = SCNVector3(x: cameraTransform.m41, y: cameraTransform.m42, z: cameraTransform.m43)
+                let cameraOrientation = SCNVector3(x: -0.75 * cameraTransform.m31, y: -0.75 * cameraTransform.m32, z: -0.75 * cameraTransform.m33)
+                
+                let cameraPosition = SCNVector3Make(cameraLocation.x + cameraOrientation.x, cameraLocation.y + cameraOrientation.y, cameraLocation.z + cameraOrientation.z)
+                
+                let sphere = SCNSphere(radius: CGFloat(newRad))
+                let material = SCNMaterial()
+                let sphereNode = SCNNode(geometry: sphere)
+                sphereNode.position = SCNVector3(x: cameraPosition.x, y: cameraPosition.y, z: cameraPosition.z)
+                
+                let newPOS = [cameraPosition.x, cameraPosition.y, cameraPosition.z, self.colorName, self.newRad] as [Any]
+                
+                self.drawPOS.append(newPOS)
+                self.canvasNode.addChildNode(sphereNode)
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -167,6 +197,23 @@ class ViewController: UIViewController, ARSCNViewDelegate {
      return node
      }
      */
+    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
+        if anchor is ARPlaneAnchor {
+            let planeAnchor = anchor as! ARPlaneAnchor
+            let plane = SCNPlane(width: CGFloat(planeAnchor.extent.x), height: CGFloat(planeAnchor.extent.z) )
+            let planeNode = SCNNode()
+                planeNode.position = SCNVector3(x:planeAnchor.center.x , y: 0, z: planeAnchor.center.z)
+                planeNode.transform = SCNMatrix4MakeRotation(-Float.pi/2, 1, 0, 0)
+            let gridMaterial = SCNMaterial()
+                gridMaterial.diffuse.contents = UIImage(named: "art.scnassets/PoopEmoji.png")
+                plane.materials = [gridMaterial]
+                planeNode.geometry = plane
+            
+            node.addChildNode(planeNode)
+            
+        } else { return}
+        
+    }
 
     func session(_ session: ARSession, didFailWithError error: Error) {
         // Present an error message to the user
