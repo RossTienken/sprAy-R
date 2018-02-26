@@ -2,6 +2,8 @@
 
 ## *Ross Tienken, Sean Bonorden, Brian Kracha, Patrick Glynn*
 
+## [Click to check out a demo of the app in action!](https://www.youtube.com/watch?v=Gojiop7vPFY)
+
 #### Planning:
 
 [Waffle.io](https://waffle.io/RossTienken/sprAy-R)
